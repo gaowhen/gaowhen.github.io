@@ -1,0 +1,89 @@
+﻿
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="charset=utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+    <meta content="Miko Gao" name="description"/>
+    <meta content="" name="keywords"/>
+    <meta name="baidu-site-verification" content="tEppcOuexj" />
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+    
+    <title>Summer Blog</title>
+    <link rel="stylesheet" href="/static/css/base.css"/>
+    
+  </head>
+  <body class="yue">
+    <div class="header">
+      <h1 class="page-title">
+        <a href="/">GaoWhen高H温</a>
+      </h1>
+      <div class="page-subtitle">「文不能测字 武不能防身」</div>
+    </div>
+    
+<div class="content">
+	
+<div class="entry">
+	<div class="entry-hd">
+		<h2>
+			<a href="/posts/vim-saved-automatically-refresh-firefox">VIM 保存后自动刷新 Firefox</a>
+		</h2>
+
+		<div class="meta">
+			<span class="time">2010-10-20 14:33:12</span>
+		</div>
+
+	</div>
+
+	<div class="entry-bd">
+		<p>之前 <a href="http://twitter.com/shawphy">@shawphy</a> 些过一篇<a href="http://shawphy.com/2010/02/auto-refresh-page-after-saving-file.html">《文件保存后自动刷新浏览器页面》</a>，介绍了在 windows 下几种编辑器保存后自动刷新 Firefox 的方法。这篇文章主要介绍 VIM 保存后自动刷新 Firefox 的一种方法。我在 mac 下使用的，win 下应该一样。</p>
+
+<p>其实很简单，首先需要安装一个 Firefox 插件 <a href="http://github.com/bard/mozrepl/wiki">MozRepl</a> （在 github 的 mozrepl wiki 页安装）。然后在 VIM 配置里面加上以下设置：&lt;!--more--&gt;</p>
+
+<p>autocmd BufWriteCmd <em>.html,</em>.css,*.gtpl :call Refresh<em>firefox()
+function! Refresh</em>firefox()
+if &amp;modified
+write
+silent !echo  &#39;vimYo = content.window.pageYOffset;
+\ vimXo = content.window.pageXOffset;
+\ BrowserReload();
+\ content.window.scrollTo(vimXo,vimYo);
+\ repl.quit();&#39;  |
+\ nc localhost 4242 2&gt;&amp;1 &gt; /dev/null
+endif
+endfunction</p>
+
+<p>其中的文件格式可以自己设置。之后每次 VIM 保存之后，Firefox 就会自动刷新了。不过现在来看有个问题，这个工具还没有智能到刷新源码对应的页面，只会刷新当前处于激活状态的标签页。不过 Firefox 对我来说，已经沦落到纯粹的开发工具了，这点小不爽可以接受。</p>
+
+	</div>
+</div>
+
+</div>
+
+    <div class="footer">
+      <div class="copyright">
+        &copy; Copyright 2005 - 2015 <a href="https://twitter.com/gaowhen">Miko Gao aka 糖伴西红柿</a>
+      </div>
+    </div>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/common.js"></script>
+    
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

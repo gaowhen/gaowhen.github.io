@@ -1,0 +1,117 @@
+﻿
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="charset=utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+    <meta content="Miko Gao" name="description"/>
+    <meta content="" name="keywords"/>
+    <meta name="baidu-site-verification" content="tEppcOuexj" />
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+    
+    <title>Summer Blog</title>
+    <link rel="stylesheet" href="/static/css/base.css"/>
+    
+  </head>
+  <body class="yue">
+    <div class="header">
+      <h1 class="page-title">
+        <a href="/">GaoWhen高H温</a>
+      </h1>
+      <div class="page-subtitle">「文不能测字 武不能防身」</div>
+    </div>
+    
+<div class="content">
+	
+<div class="entry">
+	<div class="entry-hd">
+		<h2>
+			<a href="/posts/rsync-ssh-sync-a-local-folder-to-server">rsync + ssh 同步本地文件夹至服务器</a>
+		</h2>
+
+		<div class="meta">
+			<span class="time">2010-09-06 22:42:16</span>
+		</div>
+
+	</div>
+
+	<div class="entry-bd">
+		<p>之前有介绍过使用 <a href="http://www.dropbox.com/referrals/NTI2NTk3OTk">dropbox</a>来同步 vimwiki <a href="http://gaowhen.com/post/anytime-anywhere-vimwiki.html">随时随地的 !VimWiki</a>。之前觉得这样就足够了，没必要放到网络上。不过最近越来越觉得个人知识管理 wiki 重要了，不过本机的文件之前没规划好，wiki 模版也一直没做，有点懒散。既然是知识，何不共享出来，也能敦促自己多学习、勤整理。不过觉得发布的时候有些麻烦，之前看到 <a href="http://gracecode.com">明城</a> 的 wiki 使用 rsync 同步的，于是我也折腾了下。以下是使用 rsync 和 ssh 同步本地文件到服务器（bluehost）的方法。其他服务器不清楚，bluehost 是默认安装了 rsync 的。&lt;!--more--&gt;</p>
+
+<h2>Mactonish 安装 rsync</h2>
+
+<h3>获取 rysnc</h3>
+
+<p>首先去 <a href="http://rsync.samba.org/">rsync 首页</a> 获取最新的源码包，当前是 3.0.7 版本。然后就是编译、安装，前提同样需要 c 编译器（如 Xcode）。
+<pre class="html4stricta&gt; curl -O http://rsync.samba.org/ftp/rsync/src/rsync-3.0.7.tar.gz tar -xzvf rsync-3.0.7.tar.gz cd rsync-3.0.7 ./configure make sudo make install &lt;/pre&gt; &lt;p&gt; 当然了，下载、解压都有别的工具可用，不过最近迷恋命令行，觉得命令行很有乐趣。 &lt;/p&gt; &lt;h2 id=">同步</p>
+
+<p>以下另存为 rsync-example.sh 。
+<pre class="html4strict"># 设置一个 lock 文件，防止多次运行
+LOCK<em>FILE=&quot;/tmp/rsync</em>backup.lock&quot;
+LOG<em>FILE=&quot;/tmp/rsync</em>backup.log&quot;</p>
+
+<h1>rsync 路径</h1>
+
+<p>RSYNC=&quot;/usr/local/bin/rsync&quot;</p>
+
+<p>if [ -e $LOCK<em>FILE ]; then
+    TIMESTAMP=$(date)
+    echo &quot;$TIMESTAMP: lock file exists, exit now&quot; &gt;&gt; $LOG</em>FILE
+    exit
+fi</p>
+
+<p>cat /dev/null &gt; $LOG_FILE</p>
+
+<p>touch $LOCK_FILE</p>
+
+<h1>需要自己定制的命令</h1>
+
+<p>rsync -avz --rsh=&quot;ssh -l user&quot; local/folder user@remotehost:remote/folder</p>
+
+<p>rm $LOCK_FILE</pre>
+赋予它可执行权限
+<pre class="html4strict">chmod +x rsync-example.sh</pre>
+执行
+<pre class="html4strict">./rsync-example.sh</pre>
+不用这个脚本，直接用其中的命令 rsync -avz --rsh=&quot;ssh -l user&quot; local/folder user@remotehost:remote/folder 也是一样。</p>
+
+<h3>参考资料</h3>
+
+<ul>
+<li>  <a href="http://www.xelon.it/articles/rsync-mac-linux-windows/">How to use rsync on mac os x, windows and linux</a></li>
+<li>  <a href="http://developer.apple.com/mac/library/documentation/Darwin/Reference/ManPages/man1/rsync.1.html">rsync man</a>
+</pre></li>
+</ul>
+
+	</div>
+</div>
+
+</div>
+
+    <div class="footer">
+      <div class="copyright">
+        &copy; Copyright 2005 - 2015 <a href="https://twitter.com/gaowhen">Miko Gao aka 糖伴西红柿</a>
+      </div>
+    </div>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/common.js"></script>
+    
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

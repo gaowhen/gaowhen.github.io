@@ -1,0 +1,151 @@
+﻿
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="charset=utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+    <meta content="Miko Gao" name="description"/>
+    <meta content="" name="keywords"/>
+    <meta name="baidu-site-verification" content="tEppcOuexj" />
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+    
+    <title>Summer Blog</title>
+    <link rel="stylesheet" href="/static/css/base.css"/>
+    
+  </head>
+  <body class="yue">
+    <div class="header">
+      <h1 class="page-title">
+        <a href="/">GaoWhen高H温</a>
+      </h1>
+      <div class="page-subtitle">「文不能测字 武不能防身」</div>
+    </div>
+    
+<div class="content">
+	
+<div class="entry">
+	<div class="entry-hd">
+		<h2>
+			<a href="/posts/mercurial-hg-profile-hgrc">Mercurial Hg 的配置文件 hgrc</a>
+		</h2>
+
+		<div class="meta">
+			<span class="time">2010-09-04 14:54:30</span>
+		</div>
+
+	</div>
+
+	<div class="entry-bd">
+		<p>其实 hgrc 里面的配置选项是有很多的，这里只列出了目前我配置到的一些选项。</p>
+
+<h2>环境</h2>
+
+<p>这里默认说的都是 Mac 环境。</p>
+
+<h2>简介</h2>
+
+<p>用过 vi/vim 的大概一看就知道这是 Hg 的配置文件。</p>
+
+<h2>文件</h2>
+
+<ul>
+<li><p>每个系统的配置文件</p>
+
+<ul>
+<li>  路径 &lt;install-root&gt;/etc/mercurial/hgrc 或 &lt;install-root&gt;/etc/mercurial/hgrc.d/*.rc</li>
+</ul></li>
+<li><p>每个用户的配置文件</p>
+
+<ul>
+<li>  路径 $HOME/.hgrc</li>
+</ul></li>
+<li><ul>
+<li>每个项目的配置文件</li>
+</ul>
+
+<ul>
+<li>  路径 &lt;repo&gt;/.hg/hgrc</li>
+<li>  每个项目自己的配置文件里面的配置会覆盖掉以上两个的配置。</li>
+<li>  这个文件不在版本控制之内，不会随 clone 操作被传送出去，因此里面的配置信息(尤其是密码)是安全的。</li>
+</ul></li>
+</ul>
+
+<h2>&lt;!--more--&gt;语法</h2>
+
+<p>配置文件是由如下形式的区块(section)组成的。
+<pre class="html4strict">[foo]
+foo1 = bar1
+foo2 = bar2</pre></p>
+
+<h2>区块 section</h2>
+
+<h3>alias</h3>
+
+<p><pre class="html4strict">&lt;alias&gt; = &lt;command&gt; [&lt;argument]...</pre>
+例如设置了
+<pre class="html4strict">[alias]
+latest = log --limit 5</pre>
+就可以使用 hg latest 命令来查看最近的 5 条 log。</p>
+
+<h3>auth</h3>
+
+<p>用来管理多个库的验证信息，一般会在 $HOME/.hgrc 里面设置，这样就不用每次都要输入用户名和密码了。安全起见，要确保只有自己能看到这个文件。
+<pre class="html4strict">&lt;name&gt;.&lt;argument&gt; = &lt;value&gt;</pre>
+例如
+<pre class="html4strict">[auth]
+vim.prefix = bitbucket.org/gaowhen/vim
+vim.username = foo
+vim.password = bar
+vim.schemes = http https</p>
+
+<p>lab.prefix = bitbucket.org/gaowhen/lab
+lab.username = foo
+lab.password = bar
+lab.schemes = http https</pre>
+在 $HOMT/.hgrc 里面设置了 auth 之后，只需要在 &lt;repo&gt;/.hg/hgrc 里面设置好 paths 就可以了。改变版本库的时候，Hg 会根据不同的 prefix 来自动进行用户验证。</p>
+
+<h3>paths</h3>
+
+<ul>
+<li>  default 拉取(pull)源代码时如果没有指定库，则从这里指定的目录或 URL 拉取。一般设置为当前库复制(clone)而来的库。</li>
+<li>  default-push 可选项。推送(push)的时候如果没指定库，则推送到这里指定的目录或 URL。</li>
+</ul>
+
+<h2>参考资料</h2>
+
+<ul>
+<li>  <a href="http://www.selenic.com/mercurial/hgrc.5.html">hgrc</a></li>
+</ul>
+
+	</div>
+</div>
+
+</div>
+
+    <div class="footer">
+      <div class="copyright">
+        &copy; Copyright 2005 - 2015 <a href="https://twitter.com/gaowhen">Miko Gao aka 糖伴西红柿</a>
+      </div>
+    </div>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/common.js"></script>
+    
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

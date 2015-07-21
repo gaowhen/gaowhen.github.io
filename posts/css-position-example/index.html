@@ -1,0 +1,212 @@
+﻿
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="charset=utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+    <meta content="Miko Gao" name="description"/>
+    <meta content="" name="keywords"/>
+    <meta name="baidu-site-verification" content="tEppcOuexj" />
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+    
+    <title>Summer Blog</title>
+    <link rel="stylesheet" href="/static/css/base.css"/>
+    
+  </head>
+  <body class="yue">
+    <div class="header">
+      <h1 class="page-title">
+        <a href="/">GaoWhen高H温</a>
+      </h1>
+      <div class="page-subtitle">「文不能测字 武不能防身」</div>
+    </div>
+    
+<div class="content">
+	
+<div class="entry">
+	<div class="entry-hd">
+		<h2>
+			<a href="/posts/css-position-example">[CSS]position:static|relative|absolute|fixed</a>
+		</h2>
+
+		<div class="meta">
+			<span class="time">2007-05-12 15:15:45</span>
+		</div>
+
+	</div>
+
+	<div class="entry-bd">
+		<p>1.相对定位|relative
+    相对于元素在文档流中的初始位置。
+    相对定位的元素占据文档流，属于普通流定位模型的一部分，对一个元素进行相对定位，这个元素相对于它的起点(即在文档中的位置)进行移动top/left/right/bottom。使用相对定位时，无论是否进行移动，元素仍占据原来空间，移动元素会导致覆盖其他框。
+2.绝对定位|absolute
+    相对于最近的已定位的祖先元素。
+    绝对定位使元素与文档流无关，不占据文档空间。普通流中的元素会表现的好像绝对定位的元素并不存在一样。绝对定位的元素的位置相对于最近的已定位的祖先元素。若元素没有已定位的祖先元素，那么元素的位置相对于最初的包含块，依据浏览器不同，最初包含块可能为canvas或者html元素。
+    何谓 已定位的祖先元素（包含块） ？
+    Take a look at what the CSS 2.1 specification has to say about containing blocks: 
+    If the element has ‘position: absolute’, the containing block is established by the nearest ancestor with a ‘position’ of ‘absolute’, ‘relative’ or ‘fixed’ ... If there is no such ancestor, the containing block is the initial containing block. 
+        祖先元素（包含块）是指具有position:absolute|relative|fixed的祖先元素</p>
+
+<p>3.固顶定位|fixed
+    属于绝对定位的一个子类，包含块是viewport。</p>
+
+<pre><code>理论永远是枯燥的，以下上我学习时写得例子。就像我说的，这是我学习时写的例子，所以，样子可以说是奇丑无比，以至于我都不愿意把它丑陋的样子展示出来，所以，以下只给除html以及css的源代码。
+</code></pre>
+
+<p>default.html</p>
+
+<p>`&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;XHTML&nbsp;1.0&nbsp;Strict//EN&quot;&nbsp;&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html&nbsp;lang=&quot;zh-CN&quot;&nbsp;xml:lang=&quot;zh-CN&quot;&nbsp;xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+&lt;meta&nbsp;http-equiv=&quot;Content-Type&quot;&nbsp;content=&quot;text/html;&nbsp;charset=utf-8&quot;&nbsp;/&gt;
+&lt;meta&nbsp;name=&quot;Author&quot;&nbsp;content=&quot;&quot;&nbsp;/&gt;
+&lt;link&nbsp;href=&quot;style.css&quot;&nbsp;rel=&quot;stylesheet&quot;&nbsp;type=&quot;text/css&quot;&nbsp;media=&quot;screen&quot;&nbsp;title=&quot;position&quot;&nbsp;/&gt;
+&lt;title&gt;Position&nbsp;example&lt;/title&gt;
+&lt;/head&gt;</p>
+
+<p>&lt;body&gt;
+&nbsp;&nbsp;&lt;div&nbsp;id=&quot;content&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox0&quot;&gt;myBox0&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox1&quot;&gt;myBox1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox6&quot;&gt;myBox6&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox2&quot;&gt;myBox2
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox5&quot;&gt;myBox5&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox3&quot;&gt;myBox3&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox4&quot;&gt;myBox4&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox7&quot;&gt;myBox7&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+`</p>
+
+<p>style.css</p>
+
+<p>`*{
+&nbsp;&nbsp;margin:&nbsp;0;
+&nbsp;&nbsp;padding:&nbsp;0;
+}
+body{
+&nbsp;&nbsp;text-align:&nbsp;center;
+}</p>
+
+<h1>content{</h1>
+
+<p>&nbsp;&nbsp;width:&nbsp;800px;
+&nbsp;&nbsp;height:&nbsp;100%;
+&nbsp;&nbsp;margin:&nbsp;0&nbsp;auto;
+&nbsp;&nbsp;background:&nbsp;Fuchsia;
+&nbsp;&nbsp;text-align:&nbsp;left;
+}</p>
+
+<h1>myBox0{</h1>
+
+<p>&nbsp;&nbsp;width:&nbsp;200px;
+&nbsp;&nbsp;height:&nbsp;300px;
+&nbsp;&nbsp;background:&nbsp;red;
+}</p>
+
+<h1>myBox1{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;relative;
+&nbsp;&nbsp;left:&nbsp;20px;
+&nbsp;&nbsp;top:&nbsp;20px;
+&nbsp;&nbsp;width:&nbsp;100px;
+&nbsp;&nbsp;height:&nbsp;200px;
+&nbsp;&nbsp;background:&nbsp;Aqua;
+}</p>
+
+<h1>myBox2{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;absolute;
+&nbsp;&nbsp;left:&nbsp;20px;
+&nbsp;&nbsp;top:&nbsp;20px;
+&nbsp;&nbsp;width:&nbsp;200px;
+&nbsp;&nbsp;height:&nbsp;300px;
+&nbsp;&nbsp;background:&nbsp;yellow;
+}</p>
+
+<h1>myBox3{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;static;
+&nbsp;&nbsp;width:&nbsp;300px;
+&nbsp;&nbsp;height:&nbsp;400px;
+&nbsp;&nbsp;background:&nbsp;orange;
+}</p>
+
+<h1>myBox4{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;fixed;
+&nbsp;&nbsp;top:&nbsp;100px;
+&nbsp;&nbsp;right:&nbsp;300px;
+&nbsp;&nbsp;width:&nbsp;100px;
+&nbsp;&nbsp;height:&nbsp;50px;
+&nbsp;&nbsp;background:&nbsp;#fff;
+}</p>
+
+<h1>myBox5{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;absolute;
+&nbsp;&nbsp;left:&nbsp;20px;
+&nbsp;&nbsp;top:&nbsp;80px;
+&nbsp;&nbsp;width:&nbsp;120px;
+&nbsp;&nbsp;height:&nbsp;30px;
+&nbsp;&nbsp;background:&nbsp;blue;
+}</p>
+
+<h1>myBox6{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;absolute;
+&nbsp;&nbsp;left:&nbsp;20px;
+&nbsp;&nbsp;top:&nbsp;80px;
+&nbsp;&nbsp;width:&nbsp;120px;
+&nbsp;&nbsp;height:&nbsp;30px;
+&nbsp;&nbsp;background:&nbsp;green;
+}</p>
+
+<h1>myBox7{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;absolute;
+&nbsp;&nbsp;left:&nbsp;120px;
+&nbsp;&nbsp;top:&nbsp;180px;
+&nbsp;&nbsp;width:&nbsp;50px;
+&nbsp;&nbsp;height:&nbsp;50px;
+&nbsp;&nbsp;background:&nbsp;black;
+}
+`</p>
+
+	</div>
+</div>
+
+</div>
+
+    <div class="footer">
+      <div class="copyright">
+        &copy; Copyright 2005 - 2015 <a href="https://twitter.com/gaowhen">Miko Gao aka 糖伴西红柿</a>
+      </div>
+    </div>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/common.js"></script>
+    
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
