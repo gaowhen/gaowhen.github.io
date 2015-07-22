@@ -448,6 +448,14 @@ a {
 .entry {
   border-top: 1px solid #f1f1f1;
 }
+.entry img {
+  margin: 0.2em auto;
+}
+@media screen and (max-width: 767px) {
+  .entry img {
+    display: block;
+  }
+}
 @media screen and (max-width: 767px) {
   .meta {
     text-align: center;
