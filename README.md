@@ -2,7 +2,7 @@
 
 [Miko Gao](https://twitter.com/gaowhen)'s personal blog
 
-### power by
+### powered by
 
 * python
 * flask

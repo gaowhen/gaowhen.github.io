@@ -28,6 +28,181 @@
 <div class="entry">
 	<div class="entry-hd">
 		<h2>
+			<a href="/posts/private-member-of-javascript">Javascript的私有成员</a>
+		</h2>
+
+		<div class="meta">
+			<span class="time">2009-03-23 21:54:17</span>
+		</div>
+
+	</div>
+
+	<div class="entry-bd">
+		<p>对象</p>
+
+<p>Javascript 根本上是和对象相关的。数组是对象。函数是对象。对象是对象。那什么是对象呢？对象是名-值对的集合。名是字符串，值可以是字符串，数字，布尔值或者对象(包括数组和函数)。通常对象是像哈希表一样执行地，这样便于值地快速检索。</p>
+
+<p>如果值是函数，我们可以认为这是一个方法。当一个对象地方法被调用的时候，this 变量就设置为这个对象。方法就可以通过 this 变量来访问实例变量。</p>
+
+<p>对象可以由用来初始化对象的构造函数生成。构造函数提供了其他语言中类所提供的特性，包括静态变量和方法。
+公共</p>
+
+<p>对象的成员全部是公共成员。任何函数都可以访问、修改或者删除这些成员，或者增加新成员。有两种向新对象中添加成员的方法：
+在构造函数中添加</p>
+
+<p>这个技术通常用于初始化公共实例变量。使用构造函数的 this 变量向对象中添加成员。</p>
+
+<p><textarea class="code" rows="10" cols="50">function&nbsp;Container(param){
+&nbsp;&nbsp;this.member&nbsp;=&nbsp;param;
+}</textarea></p>
+
+<p>这样，如果我们创建一个新对象：</p>
+
+<pre><code>&lt;textarea class=&quot;code&quot; rows=&quot;10&quot; cols=&quot;50&quot;&gt;var&amp;nbsp;myContainer&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Container(&#39;abc&#39;);&lt;/textarea&gt;
+</code></pre>
+
+<p>这样 myContainer.member 就包含 ‘abc’ 了。
+在原型中添加</p>
+
+<p>这个技术通常用于添加公共方法。当一个成员被检索并且没能在对象本身里面找到时，就要从对象的构造函数的原型成员里面寻找。原型机制是用于继承的。也用于节省内存。向一个构造函数生成的所有对象中添加一个方法，只需要向构造函数原型中添加一个函数：</p>
+
+<pre><code>&lt;textarea class=&quot;code&quot; rows=&quot;10&quot; cols=&quot;50&quot;&gt;Container.prototype.stamp&amp;nbsp;=&amp;nbsp;function(string){
+</code></pre>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.member&nbsp;+&nbsp;string;
+&nbsp;&nbsp;}</textarea></p>
+
+<p>因此，我们可以调用这个方法：</p>
+
+<pre><code>&lt;textarea class=&quot;code&quot; rows=&quot;10&quot; cols=&quot;50&quot;&gt;myContainer.stamp(&#39;def&#39;)&lt;/textarea&gt;
+</code></pre>
+
+<p>结果为 ‘abcdef’。
+私有</p>
+
+<p>私有成员是由构造函数生成的。一般构造函数的变量和参数都是私有成员。</p>
+
+<pre><code>&lt;textarea class=&quot;code&quot; rows=&quot;10&quot; cols=&quot;50&quot;&gt;function&amp;nbsp;Container(param){
+</code></pre>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;this.member&nbsp;=&nbsp;param;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;secret&nbsp;=&nbsp;3;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;that&nbsp;=&nbsp;this;
+&nbsp;&nbsp;}</textarea></p>
+
+<p>这个构造函数生成了3个私有实例变量：param,secret 和 that。它们和对象相关联，但是它们不仅在函数外边不可访问，而且对对象自身的公共方法来说也是不可访问的。它们只可以被私有方法访问。私有方法是构造函数的内部函数。</p>
+
+<p><textarea class="code" rows="10" cols="50">function&nbsp;Container(param)&nbsp;{
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;dec()&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(secret&nbsp;&gt;&nbsp;0)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;secret&nbsp;-=&nbsp;1;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;true;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;this.member&nbsp;=&nbsp;param;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;secret&nbsp;=&nbsp;3;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;that&nbsp;=&nbsp;this;
+}</textarea></p>
+
+<p>私有方法 dec 检查 secret 实例变量。如果它大于零，将其减一并返回 true。否则返回 false。它可以用作限定对象使用3次。</p>
+
+<p>按照习惯，我们设置了一个私有的 that 参数。它使得这个对象对于私有方法使可见的。在 ECMAScript 语言规范中，这是一个可行的错误，它使得 this 对于内部函数被不正确地设置。(This is a workaround for an error in the ECMAScript Language Specification which causes this to be set incorrectly for inner functions.)</p>
+
+<p>私有方法不能被公共方法调用。要想使得私有方法有用，需要介绍一下特权方法。
+特权</p>
+
+<p>特权方法可以访问私有变量和方法，并且其自身对于公共方法和对象外部都是可访问地。可以删除或者替换一个特权方法，但是不能改变它，或者强迫它泄密。</p>
+
+<p>特权方法是在构造函数内使用 this 指定地。</p>
+
+<p><textarea class="code" rows="10" cols="50">function&nbsp;Container(param)&nbsp;{
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;dec()&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(secret&nbsp;&gt;&nbsp;0)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;secret&nbsp;-=&nbsp;1;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;true;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;this.member&nbsp;=&nbsp;param;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;secret&nbsp;=&nbsp;3;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;that&nbsp;=&nbsp;this;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;this.service&nbsp;=&nbsp;function&nbsp;()&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(dec())&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;that.member;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;null;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;};
+}</textarea></p>
+
+<p>service 就是特权方法。前三次调用 myContainer.service() 时会返回 ‘abc’。之后返回空(null)。service 调用了可访问私有变量 secret 的私有方法 dec。service 对其他对象和方法都是可见的，但是不能直接访问私有成员。
+闭包</p>
+
+<p>由于 Javascript 有闭包，因此这种公共，私有和特权成员模型时可以的。这意味着内部函数总是可以访问它外部函数的变量和参数，甚至在外部函数返回后也可以。这是这个语言一个非常有用的特性。目前没有任何关于 Javascript 编程的书描述了如何利用它。大部分甚至都不提及它。(糖伴西红柿说，这是2001年的文章，当时估计还没有这方面的研究文章。现在来说，犀牛书等都有涉及，javascript 的难点之一啊。)</p>
+
+<p>私有和特权成员只在对象被创建时生成。公共成员可以随时添加。
+模式
+公共</p>
+
+<p><textarea class="code" rows="10" cols="50">function&nbsp;Constructor(...)&nbsp;{
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;this.membername&nbsp;=&nbsp;value;
+&nbsp;
+}
+Constructor.prototype.membername&nbsp;=&nbsp;value;</textarea></p>
+
+<p>私有</p>
+
+<p><textarea class="code" rows="10" cols="50">function&nbsp;Constructor(...)&nbsp;{
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;that&nbsp;=&nbsp;this;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;membername&nbsp;=&nbsp;value;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;membername(...)&nbsp;{...}
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}</textarea></p>
+
+<p>注意：函数语句
+<textarea class="code" rows="10" cols="50">
+function&nbsp;membername(...)&nbsp;{...}</textarea></p>
+
+<p>是
+<textarea class="code" rows="10" cols="50">
+var&nbsp;membername&nbsp;=&nbsp;function&nbsp;membername(...)&nbsp;{...};</textarea></p>
+
+<p>的缩写。
+特权</p>
+
+<p><textarea class="code" rows="10" cols="50">function&nbsp;Constructor(...)&nbsp;{
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.membername&nbsp;=&nbsp;function&nbsp;(...)&nbsp;{..
+.};
+&nbsp;
+&nbsp;&nbsp;&amp;nb
+sp;&nbsp;}
+</textarea>
+糖伴西红柿说：</p>
+
+<p>好久没露面，本来就没人记得我，这次更无名了。最近从高丽迁移回了天朝，嗯。而且正在为了工作进行最后的充电活动。生活中同时也遭遇到电视剧情节，还是高丽电视剧。这两天在主攻 Javascript 中几个比较难的知识点，闭包算是其中之一。两天看了好多关于闭包的文章，才有点开窍，这篇文章属于其中之一。算是个额外的参考资料，主要的是另一篇英文文章，有打算全篇翻译。</p>
+
+<p>原文地址：<a href="http://www.crockford.com/javascript/private.html">http://www.crockford.com/javascript/private.html</a>
+译文地址：<a href="http://www.qianduan.net/?p=6580">http://www.qianduan.net/?p=6580</a></p>
+
+	</div>
+</div>
+
+		
+<div class="entry">
+	<div class="entry-hd">
+		<h2>
 			<a href="/posts/farewell-beyond">再见理想，再见Beyond</a>
 		</h2>
 
@@ -306,53 +481,6 @@ body{
 	</div>
 </div>
 
-		
-<div class="entry">
-	<div class="entry-hd">
-		<h2>
-			<a href="/posts/visa">青岛市护照申领流程</a>
-		</h2>
-
-		<div class="meta">
-			<span class="time">2006-12-28 09:26:13</span>
-		</div>
-
-	</div>
-
-	<div class="entry-bd">
-		<p>工作需要，去申办了护照
-把过程记录一下</p>
-
-<p>需要材料：户口本复印件、身份证复印件
-如果户口本不在手里，带着身份证，先去户口所在派出所开出户籍证明
-告诉他们办护照用行了
-然后带着身份证复印件和户口本复印件/户籍证明去逍遥路的公安出入境管理办理</p>
-
-<p>办理流程：
-一、进门之后，在右手边交25元照相款(为保证照片质量，统一在这里拍照)
-如果没有身份证复印件和户口本复印件也可以在这里复印，5角/张</p>
-
-<p>二、拿了交款单子(报销的话可以要发票)，去二楼拍照，
-速度很快，从拍照到照片出来也就不到5分钟，(可以把数码照片拷到U盘上，10元，好黑。。。)
-这个期间去咨询台领取《公民因私护照申领表》
-注意的是最下面有个护照领取方法，一定要选快递，然后填好地址，选择去公安部门领取的话也可以
-不过你还得跑一趟济南去取</p>
-
-<p>三、上面的办妥后，去和坐在照相的门口那里的小哥约号，也许他会要求看你上面办的材料
-拿到号之后，去找个旮旯呆着等吧。叫到你的时候你就过去办行了，服务态度很好的，注意装照片的袋子不要丢了
-上面的号码要用到的。期间会给你一份缴费单，拿着去一楼楼梯口右手边大厅里面的第一个窗口交费，200元
-然后再去二楼把单据交给办理的民警。他会把其中一张回执单给你，这个东西是要在护照快递给你的时候用的
-所以要妥善保存，并在收取快递的时候出示。</p>
-
-<p>四、等待，10个工作日之内，护照会快递给你，再付出25元快递费用</p>
-
-<p>五、没了</p>
-
-<p>他们周六上午也会办理，早9点开始，不过只是半天，人比较多，最好早去，不然拿不到号了</p>
-
-	</div>
-</div>
-
 
 	
 
@@ -395,6 +523,15 @@ body{
 	<a href="/page/6" data-page="6">6</a>
 </li>
 
+		
+<li >
+	<a href="/page/7" data-page="7">7</a>
+</li>
+
+
+		<li>
+			<a href="/page/7">&raquo;</a>
+		</li>
 
 </ul>
 
