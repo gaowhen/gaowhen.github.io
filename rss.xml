@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">GaoWhen高H温</title>
   <id>http://gaowhen.com/rss.xml</id>
-  <updated>2015-07-31T10:40:29.623761Z</updated>
+  <updated>2015-07-31T12:19:20.244726Z</updated>
   <link href="http://gaowhen.com/" />
   <link href="http://gaowhen.com/rss.xml" rel="self" />
   <author>
@@ -15,7 +15,7 @@
     <id>http://gaowhen.com/hei-ren-yu-zi-hei/</id>
     <updated>2015-07-22T10:29:45Z</updated>
     <published>2015-07-22T10:29:45Z</published>
-    <link href="http://gaowhen.com/hei-ren-yu-zi-hei/" />
+    <link href="http://gaowhen.com/posts/hei-ren-yu-zi-hei/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -57,7 +57,7 @@
     <id>http://gaowhen.com/fail-fast/</id>
     <updated>2015-07-09T10:32:14Z</updated>
     <published>2015-07-09T10:32:14Z</published>
-    <link href="http://gaowhen.com/fail-fast/" />
+    <link href="http://gaowhen.com/posts/fail-fast/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -97,7 +97,7 @@
     <id>http://gaowhen.com/no-bad-startups/</id>
     <updated>2015-06-29T10:27:48Z</updated>
     <published>2015-06-29T10:27:48Z</published>
-    <link href="http://gaowhen.com/no-bad-startups/" />
+    <link href="http://gaowhen.com/posts/no-bad-startups/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -163,7 +163,7 @@
     <id>http://gaowhen.com/preset-trap/</id>
     <updated>2015-05-20T10:42:56Z</updated>
     <published>2015-05-20T10:42:56Z</published>
-    <link href="http://gaowhen.com/preset-trap/" />
+    <link href="http://gaowhen.com/posts/preset-trap/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -207,7 +207,7 @@
     <id>http://gaowhen.com/mind-fire-start-up-choice/</id>
     <updated>2015-04-16T16:06:21Z</updated>
     <published>2015-04-16T16:06:21Z</published>
-    <link href="http://gaowhen.com/mind-fire-start-up-choice/" />
+    <link href="http://gaowhen.com/posts/mind-fire-start-up-choice/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -263,7 +263,7 @@
     <id>http://gaowhen.com/mind-fire-mu-di-xi-jie-he-da-ju-guan/</id>
     <updated>2014-12-04T10:31:11Z</updated>
     <published>2014-12-04T10:31:11Z</published>
-    <link href="http://gaowhen.com/mind-fire-mu-di-xi-jie-he-da-ju-guan/" />
+    <link href="http://gaowhen.com/posts/mind-fire-mu-di-xi-jie-he-da-ju-guan/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -321,7 +321,7 @@
     <id>http://gaowhen.com/mind-fire-zhen-shi-di-huang-yan/</id>
     <updated>2014-12-04T10:23:14Z</updated>
     <published>2014-12-04T10:23:14Z</published>
-    <link href="http://gaowhen.com/mind-fire-zhen-shi-di-huang-yan/" />
+    <link href="http://gaowhen.com/posts/mind-fire-zhen-shi-di-huang-yan/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -351,7 +351,7 @@
     <id>http://gaowhen.com/fire-on-the-road/</id>
     <updated>2014-09-18T14:53:09Z</updated>
     <published>2014-09-18T14:53:09Z</published>
-    <link href="http://gaowhen.com/fire-on-the-road/" />
+    <link href="http://gaowhen.com/posts/fire-on-the-road/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -373,7 +373,7 @@
     <id>http://gaowhen.com/how-far-from-home/</id>
     <updated>2014-09-11T22:17:26Z</updated>
     <published>2014-09-11T22:17:26Z</published>
-    <link href="http://gaowhen.com/how-far-from-home/" />
+    <link href="http://gaowhen.com/posts/how-far-from-home/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -433,7 +433,7 @@
     <id>http://gaowhen.com/si-liu-bu-tong/</id>
     <updated>2014-08-02T22:21:24Z</updated>
     <published>2014-08-02T22:21:24Z</published>
-    <link href="http://gaowhen.com/si-liu-bu-tong/" />
+    <link href="http://gaowhen.com/posts/si-liu-bu-tong/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -482,7 +482,7 @@
     <id>http://gaowhen.com/thailand-cinema/</id>
     <updated>2013-07-22T22:10:48Z</updated>
     <published>2013-07-22T22:10:48Z</published>
-    <link href="http://gaowhen.com/thailand-cinema/" />
+    <link href="http://gaowhen.com/posts/thailand-cinema/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -506,7 +506,7 @@
     <id>http://gaowhen.com/the-meaning-of-travel/</id>
     <updated>2013-07-16T21:15:11Z</updated>
     <published>2013-07-16T21:15:11Z</published>
-    <link href="http://gaowhen.com/the-meaning-of-travel/" />
+    <link href="http://gaowhen.com/posts/the-meaning-of-travel/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -534,7 +534,7 @@
     <id>http://gaowhen.com/2012/</id>
     <updated>2013-01-01T14:19:24Z</updated>
     <published>2013-01-01T14:19:24Z</published>
-    <link href="http://gaowhen.com/2012/" />
+    <link href="http://gaowhen.com/posts/2012/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -662,7 +662,7 @@
     <id>http://gaowhen.com/remember-one-meaningful-thing/</id>
     <updated>2012-02-21T10:05:48Z</updated>
     <published>2012-02-21T10:05:48Z</published>
-    <link href="http://gaowhen.com/remember-one-meaningful-thing/" />
+    <link href="http://gaowhen.com/posts/remember-one-meaningful-thing/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -750,7 +750,7 @@
     <id>http://gaowhen.com/2011/</id>
     <updated>2012-01-01T01:09:37Z</updated>
     <published>2012-01-01T01:09:37Z</published>
-    <link href="http://gaowhen.com/2011/" />
+    <link href="http://gaowhen.com/posts/2011/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -798,7 +798,7 @@
     <id>http://gaowhen.com/be-pro/</id>
     <updated>2011-01-15T22:30:26Z</updated>
     <published>2011-01-15T22:30:26Z</published>
-    <link href="http://gaowhen.com/be-pro/" />
+    <link href="http://gaowhen.com/posts/be-pro/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -832,7 +832,7 @@
     <id>http://gaowhen.com/2010-photo-review/</id>
     <updated>2011-01-01T21:49:02Z</updated>
     <published>2011-01-01T21:49:02Z</published>
-    <link href="http://gaowhen.com/2010-photo-review/" />
+    <link href="http://gaowhen.com/posts/2010-photo-review/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -931,7 +931,7 @@ Douglas @ Velocity China 2010 @ 北京
     <id>http://gaowhen.com/4days-in-amoy/</id>
     <updated>2010-11-07T14:02:22Z</updated>
     <published>2010-11-07T14:02:22Z</published>
-    <link href="http://gaowhen.com/4days-in-amoy/" />
+    <link href="http://gaowhen.com/posts/4days-in-amoy/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -999,7 +999,7 @@ Douglas @ Velocity China 2010 @ 北京
     <id>http://gaowhen.com/vim-saved-automatically-refresh-firefox/</id>
     <updated>2010-10-20T14:33:12Z</updated>
     <published>2010-10-20T14:33:12Z</published>
-    <link href="http://gaowhen.com/vim-saved-automatically-refresh-firefox/" />
+    <link href="http://gaowhen.com/posts/vim-saved-automatically-refresh-firefox/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -1028,7 +1028,7 @@ endfunction&lt;/p&gt;
     <id>http://gaowhen.com/rsync-ssh-sync-a-local-folder-to-server/</id>
     <updated>2010-09-06T22:42:16Z</updated>
     <published>2010-09-06T22:42:16Z</published>
-    <link href="http://gaowhen.com/rsync-ssh-sync-a-local-folder-to-server/" />
+    <link href="http://gaowhen.com/posts/rsync-ssh-sync-a-local-folder-to-server/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -1085,7 +1085,7 @@ fi&lt;/p&gt;
     <id>http://gaowhen.com/mercurial-hg-profile-hgrc/</id>
     <updated>2010-09-04T14:54:30Z</updated>
     <published>2010-09-04T14:54:30Z</published>
-    <link href="http://gaowhen.com/mercurial-hg-profile-hgrc/" />
+    <link href="http://gaowhen.com/posts/mercurial-hg-profile-hgrc/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -1176,7 +1176,7 @@ lab.schemes = http https&lt;/pre&gt;
     <id>http://gaowhen.com/e6-8e-a8-e8-8d-90-e4-b8-a4-e9-a6-96-e6-ad-8c/</id>
     <updated>2009-09-02T14:46:44Z</updated>
     <published>2009-09-02T14:46:44Z</published>
-    <link href="http://gaowhen.com/e6-8e-a8-e8-8d-90-e4-b8-a4-e9-a6-96-e6-ad-8c/" />
+    <link href="http://gaowhen.com/posts/e6-8e-a8-e8-8d-90-e4-b8-a4-e9-a6-96-e6-ad-8c/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -1204,7 +1204,7 @@ lab.schemes = http https&lt;/pre&gt;
     <id>http://gaowhen.com/ie-img-bug/</id>
     <updated>2009-06-08T12:56:28Z</updated>
     <published>2009-06-08T12:56:28Z</published>
-    <link href="http://gaowhen.com/ie-img-bug/" />
+    <link href="http://gaowhen.com/posts/ie-img-bug/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -1310,7 +1310,7 @@ img{
     <id>http://gaowhen.com/css-box-model/</id>
     <updated>2009-06-05T17:38:20Z</updated>
     <published>2009-06-05T17:38:20Z</published>
-    <link href="http://gaowhen.com/css-box-model/" />
+    <link href="http://gaowhen.com/posts/css-box-model/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -1388,7 +1388,7 @@ img{
     <id>http://gaowhen.com/definition-list/</id>
     <updated>2009-04-29T11:04:43Z</updated>
     <published>2009-04-29T11:04:43Z</published>
-    <link href="http://gaowhen.com/definition-list/" />
+    <link href="http://gaowhen.com/posts/definition-list/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -1441,7 +1441,7 @@ onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
     <id>http://gaowhen.com/private-member-of-javascript/</id>
     <updated>2009-03-23T21:54:17Z</updated>
     <published>2009-03-23T21:54:17Z</published>
-    <link href="http://gaowhen.com/private-member-of-javascript/" />
+    <link href="http://gaowhen.com/posts/private-member-of-javascript/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -1609,7 +1609,7 @@ sp;&amp;nbsp;}
     <id>http://gaowhen.com/farewell-beyond/</id>
     <updated>2008-06-30T15:53:57Z</updated>
     <published>2008-06-30T15:53:57Z</published>
-    <link href="http://gaowhen.com/farewell-beyond/" />
+    <link href="http://gaowhen.com/posts/farewell-beyond/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -1623,7 +1623,7 @@ sp;&amp;nbsp;}
     <id>http://gaowhen.com/css-position-example/</id>
     <updated>2007-05-12T15:15:45Z</updated>
     <published>2007-05-12T15:15:45Z</published>
-    <link href="http://gaowhen.com/css-position-example/" />
+    <link href="http://gaowhen.com/posts/css-position-example/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -1775,7 +1775,7 @@ body{
     <id>http://gaowhen.com/css-written-order/</id>
     <updated>2007-05-07T18:51:03Z</updated>
     <published>2007-05-07T18:51:03Z</published>
-    <link href="http://gaowhen.com/css-written-order/" />
+    <link href="http://gaowhen.com/posts/css-written-order/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -1817,7 +1817,7 @@ body{
     <id>http://gaowhen.com/65/</id>
     <updated>2007-03-01T14:35:43Z</updated>
     <published>2007-03-01T14:35:43Z</published>
-    <link href="http://gaowhen.com/65/" />
+    <link href="http://gaowhen.com/posts/65/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
@@ -1863,7 +1863,7 @@ body{
     <id>http://gaowhen.com/visa/</id>
     <updated>2006-12-28T09:26:13Z</updated>
     <published>2006-12-28T09:26:13Z</published>
-    <link href="http://gaowhen.com/visa/" />
+    <link href="http://gaowhen.com/posts/visa/" />
     <author>
       <name>Miko Gao aka 糖伴西红柿</name>
     </author>
