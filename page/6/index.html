@@ -1,0 +1,576 @@
+﻿
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="charset=utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+    <meta content="Miko Gao 糖伴西红柿 的博客，谈论创业、前端技术" name="description"/>
+    <meta content="Miko Gao, 糖伴西红柿, blog, mindfire, startup, f2e, 前端, 创业" name="keywords"/>
+    <meta name="baidu-site-verification" content="tEppcOuexj" />
+    <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+    <link href="/rss.xml" rel="alternate" type="application/rss+xml" title="GaoWhen高H温" />
+    
+    <title>GaoWhen高H温</title>
+    <link rel="stylesheet" href="/static/css/base.css"/>
+    
+  </head>
+  <body class="yue">
+    <div class="header">
+      <h1 class="page-title">
+        <a href="/">GaoWhen高H温</a>
+      </h1>
+      <div class="page-subtitle">「文不能测字 武不能防身」</div>
+    </div>
+    
+<div class="content">
+		
+<div class="entry">
+	<div class="entry-hd">
+		<h2>
+			<a href="/posts/definition-list">定义列表: DL DT DD</a>
+		</h2>
+
+		<div class="meta">
+			<span class="time">2009-04-29 11:04:43</span>
+		</div>
+
+	</div>
+
+	<div class="entry-bd">
+		<p><quote>定义列表和其他类型的列表稍有不同，它由两部分组成：名称和定义。DT 指定名称，为内联元素。DD 指定定义，为块级元素。</p>
+
+<p>标准属性</p>
+
+<p>id, class, title, style, dir, lang, xml:lang</p>
+
+<p>事件属性</p>
+
+<p>onclick, ondblclick, onmousedown, onmouseup, onmouseover, 
+onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
+</quote></p>
+
+<p>示例：
+<textarea class="code" rows="10" cols="50">&lt;dl&gt;
+&lt;dt&gt;标题&lt;/dt&gt;
+&lt;dd&gt;内容1&lt;/dd&gt;
+&lt;dd&gt;内容2&lt;/dd&gt;
+&lt;/dl&gt;&nbsp;</textarea></p>
+
+<p>dl —— define list——定义列表</p>
+
+<p>dt —— define list title —— 用于生成定义列表中各列表项的标题，重复使用可以定义多个列表项的标题。注意：其中不能包含 hx 元素。</p>
+
+<p>dd —— define list define —— 用于生成定义列表各列表项的说明文字段，重复使用可以定义多个说明文字段。dd是对应dt的简短说明或解释。 </p>
+
+<p>dl 列表中有较为强烈的“描述”、“解释”、“补充”意义。 dt 和 dd 有明显的逻辑关系，dd 从属于 dt，dd 中的内容是对 dt 的“描述”、“解释”、“补充”。
+另外，dd 之间虽然是平行关系，但是其描述的内容是多角度的，不同于单纯的 li。</p>
+
+<p>例如：</p>
+
+<p><textarea class="code" rows="10" cols="50">&lt;dl&gt;
+&nbsp;&nbsp;&lt;dt&gt;JavaScript权威指南&lt;/dt&gt;
+&nbsp;&nbsp;&lt;dd&gt;出版社：xxx&lt;/dd&gt;
+&nbsp;&nbsp;&lt;dd&gt;ISBN:&nbsp;xxx&lt;/dd&gt;
+&nbsp;&nbsp;&lt;dd&gt;售价：xxx&lt;/dd&gt;
+&lt;/dl&gt;</textarea></p>
+
+<p><textarea class="code" rows="10" cols="50">&lt;ul&gt;
+&nbsp;&nbsp;&lt;li&gt;JavaScript权威指南&lt;/li&gt;
+&nbsp;&nbsp;&lt;li&gt;JavaScript&nbsp;Dom&nbsp;高级程序设计&lt;/li&gt;
+&nbsp;&nbsp;&lt;li&gt;ppk&nbsp;谈&nbsp;JavaScript&lt;/li&gt;
+&lt;/ul&gt;</textarea></p>
+
+	</div>
+</div>
+
+		
+<div class="entry">
+	<div class="entry-hd">
+		<h2>
+			<a href="/posts/private-member-of-javascript">Javascript的私有成员</a>
+		</h2>
+
+		<div class="meta">
+			<span class="time">2009-03-23 21:54:17</span>
+		</div>
+
+	</div>
+
+	<div class="entry-bd">
+		<p>对象</p>
+
+<p>Javascript 根本上是和对象相关的。数组是对象。函数是对象。对象是对象。那什么是对象呢？对象是名-值对的集合。名是字符串，值可以是字符串，数字，布尔值或者对象(包括数组和函数)。通常对象是像哈希表一样执行地，这样便于值地快速检索。</p>
+
+<p>如果值是函数，我们可以认为这是一个方法。当一个对象地方法被调用的时候，this 变量就设置为这个对象。方法就可以通过 this 变量来访问实例变量。</p>
+
+<p>对象可以由用来初始化对象的构造函数生成。构造函数提供了其他语言中类所提供的特性，包括静态变量和方法。
+公共</p>
+
+<p>对象的成员全部是公共成员。任何函数都可以访问、修改或者删除这些成员，或者增加新成员。有两种向新对象中添加成员的方法：
+在构造函数中添加</p>
+
+<p>这个技术通常用于初始化公共实例变量。使用构造函数的 this 变量向对象中添加成员。</p>
+
+<p><textarea class="code" rows="10" cols="50">function&nbsp;Container(param){
+&nbsp;&nbsp;this.member&nbsp;=&nbsp;param;
+}</textarea></p>
+
+<p>这样，如果我们创建一个新对象：</p>
+
+<pre><code>&lt;textarea class=&quot;code&quot; rows=&quot;10&quot; cols=&quot;50&quot;&gt;var&amp;nbsp;myContainer&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Container(&#39;abc&#39;);&lt;/textarea&gt;
+</code></pre>
+
+<p>这样 myContainer.member 就包含 ‘abc’ 了。
+在原型中添加</p>
+
+<p>这个技术通常用于添加公共方法。当一个成员被检索并且没能在对象本身里面找到时，就要从对象的构造函数的原型成员里面寻找。原型机制是用于继承的。也用于节省内存。向一个构造函数生成的所有对象中添加一个方法，只需要向构造函数原型中添加一个函数：</p>
+
+<pre><code>&lt;textarea class=&quot;code&quot; rows=&quot;10&quot; cols=&quot;50&quot;&gt;Container.prototype.stamp&amp;nbsp;=&amp;nbsp;function(string){
+</code></pre>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.member&nbsp;+&nbsp;string;
+&nbsp;&nbsp;}</textarea></p>
+
+<p>因此，我们可以调用这个方法：</p>
+
+<pre><code>&lt;textarea class=&quot;code&quot; rows=&quot;10&quot; cols=&quot;50&quot;&gt;myContainer.stamp(&#39;def&#39;)&lt;/textarea&gt;
+</code></pre>
+
+<p>结果为 ‘abcdef’。
+私有</p>
+
+<p>私有成员是由构造函数生成的。一般构造函数的变量和参数都是私有成员。</p>
+
+<pre><code>&lt;textarea class=&quot;code&quot; rows=&quot;10&quot; cols=&quot;50&quot;&gt;function&amp;nbsp;Container(param){
+</code></pre>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;this.member&nbsp;=&nbsp;param;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;secret&nbsp;=&nbsp;3;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;that&nbsp;=&nbsp;this;
+&nbsp;&nbsp;}</textarea></p>
+
+<p>这个构造函数生成了3个私有实例变量：param,secret 和 that。它们和对象相关联，但是它们不仅在函数外边不可访问，而且对对象自身的公共方法来说也是不可访问的。它们只可以被私有方法访问。私有方法是构造函数的内部函数。</p>
+
+<p><textarea class="code" rows="10" cols="50">function&nbsp;Container(param)&nbsp;{
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;dec()&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(secret&nbsp;&gt;&nbsp;0)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;secret&nbsp;-=&nbsp;1;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;true;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;this.member&nbsp;=&nbsp;param;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;secret&nbsp;=&nbsp;3;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;that&nbsp;=&nbsp;this;
+}</textarea></p>
+
+<p>私有方法 dec 检查 secret 实例变量。如果它大于零，将其减一并返回 true。否则返回 false。它可以用作限定对象使用3次。</p>
+
+<p>按照习惯，我们设置了一个私有的 that 参数。它使得这个对象对于私有方法使可见的。在 ECMAScript 语言规范中，这是一个可行的错误，它使得 this 对于内部函数被不正确地设置。(This is a workaround for an error in the ECMAScript Language Specification which causes this to be set incorrectly for inner functions.)</p>
+
+<p>私有方法不能被公共方法调用。要想使得私有方法有用，需要介绍一下特权方法。
+特权</p>
+
+<p>特权方法可以访问私有变量和方法，并且其自身对于公共方法和对象外部都是可访问地。可以删除或者替换一个特权方法，但是不能改变它，或者强迫它泄密。</p>
+
+<p>特权方法是在构造函数内使用 this 指定地。</p>
+
+<p><textarea class="code" rows="10" cols="50">function&nbsp;Container(param)&nbsp;{
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;dec()&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(secret&nbsp;&gt;&nbsp;0)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;secret&nbsp;-=&nbsp;1;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;true;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;this.member&nbsp;=&nbsp;param;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;secret&nbsp;=&nbsp;3;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;that&nbsp;=&nbsp;this;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;this.service&nbsp;=&nbsp;function&nbsp;()&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(dec())&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;that.member;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;null;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;};
+}</textarea></p>
+
+<p>service 就是特权方法。前三次调用 myContainer.service() 时会返回 ‘abc’。之后返回空(null)。service 调用了可访问私有变量 secret 的私有方法 dec。service 对其他对象和方法都是可见的，但是不能直接访问私有成员。
+闭包</p>
+
+<p>由于 Javascript 有闭包，因此这种公共，私有和特权成员模型时可以的。这意味着内部函数总是可以访问它外部函数的变量和参数，甚至在外部函数返回后也可以。这是这个语言一个非常有用的特性。目前没有任何关于 Javascript 编程的书描述了如何利用它。大部分甚至都不提及它。(糖伴西红柿说，这是2001年的文章，当时估计还没有这方面的研究文章。现在来说，犀牛书等都有涉及，javascript 的难点之一啊。)</p>
+
+<p>私有和特权成员只在对象被创建时生成。公共成员可以随时添加。
+模式
+公共</p>
+
+<p><textarea class="code" rows="10" cols="50">function&nbsp;Constructor(...)&nbsp;{
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;this.membername&nbsp;=&nbsp;value;
+&nbsp;
+}
+Constructor.prototype.membername&nbsp;=&nbsp;value;</textarea></p>
+
+<p>私有</p>
+
+<p><textarea class="code" rows="10" cols="50">function&nbsp;Constructor(...)&nbsp;{
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;that&nbsp;=&nbsp;this;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;membername&nbsp;=&nbsp;value;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;membername(...)&nbsp;{...}
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}</textarea></p>
+
+<p>注意：函数语句
+<textarea class="code" rows="10" cols="50">
+function&nbsp;membername(...)&nbsp;{...}</textarea></p>
+
+<p>是
+<textarea class="code" rows="10" cols="50">
+var&nbsp;membername&nbsp;=&nbsp;function&nbsp;membername(...)&nbsp;{...};</textarea></p>
+
+<p>的缩写。
+特权</p>
+
+<p><textarea class="code" rows="10" cols="50">function&nbsp;Constructor(...)&nbsp;{
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.membername&nbsp;=&nbsp;function&nbsp;(...)&nbsp;{..
+.};
+&nbsp;
+&nbsp;&nbsp;&amp;nb
+sp;&nbsp;}
+</textarea>
+糖伴西红柿说：</p>
+
+<p>好久没露面，本来就没人记得我，这次更无名了。最近从高丽迁移回了天朝，嗯。而且正在为了工作进行最后的充电活动。生活中同时也遭遇到电视剧情节，还是高丽电视剧。这两天在主攻 Javascript 中几个比较难的知识点，闭包算是其中之一。两天看了好多关于闭包的文章，才有点开窍，这篇文章属于其中之一。算是个额外的参考资料，主要的是另一篇英文文章，有打算全篇翻译。</p>
+
+<p>原文地址：<a href="http://www.crockford.com/javascript/private.html">http://www.crockford.com/javascript/private.html</a>
+译文地址：<a href="http://www.qianduan.net/?p=6580">http://www.qianduan.net/?p=6580</a></p>
+
+	</div>
+</div>
+
+		
+<div class="entry">
+	<div class="entry-hd">
+		<h2>
+			<a href="/posts/farewell-beyond">再见理想，再见Beyond</a>
+		</h2>
+
+		<div class="meta">
+			<span class="time">2008-06-30 15:53:57</span>
+		</div>
+
+	</div>
+
+	<div class="entry-bd">
+		<p>满怀理想的家驹辞世15年后，所谓的娱乐圈依然只有娱乐没有乐队</p>
+
+<p><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="400" height="300"><param name="movie" value="http://6.cn/player.swf?flag=0&vid=WgKcjDpfYBsPEkluZxyVJA"><param name="quality" value="high"><param name="play" value="False"><embed src="http://6.cn/player.swf?flag=0&vid=WgKcjDpfYBsPEkluZxyVJA" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="400" height="300" play="False"></embed></object></p>
+
+	</div>
+</div>
+
+		
+<div class="entry">
+	<div class="entry-hd">
+		<h2>
+			<a href="/posts/css-position-example">[CSS]position:static|relative|absolute|fixed</a>
+		</h2>
+
+		<div class="meta">
+			<span class="time">2007-05-12 15:15:45</span>
+		</div>
+
+	</div>
+
+	<div class="entry-bd">
+		<p>1.相对定位|relative
+    相对于元素在文档流中的初始位置。
+    相对定位的元素占据文档流，属于普通流定位模型的一部分，对一个元素进行相对定位，这个元素相对于它的起点(即在文档中的位置)进行移动top/left/right/bottom。使用相对定位时，无论是否进行移动，元素仍占据原来空间，移动元素会导致覆盖其他框。
+2.绝对定位|absolute
+    相对于最近的已定位的祖先元素。
+    绝对定位使元素与文档流无关，不占据文档空间。普通流中的元素会表现的好像绝对定位的元素并不存在一样。绝对定位的元素的位置相对于最近的已定位的祖先元素。若元素没有已定位的祖先元素，那么元素的位置相对于最初的包含块，依据浏览器不同，最初包含块可能为canvas或者html元素。
+    何谓 已定位的祖先元素（包含块） ？
+    Take a look at what the CSS 2.1 specification has to say about containing blocks: 
+    If the element has ‘position: absolute’, the containing block is established by the nearest ancestor with a ‘position’ of ‘absolute’, ‘relative’ or ‘fixed’ ... If there is no such ancestor, the containing block is the initial containing block. 
+        祖先元素（包含块）是指具有position:absolute|relative|fixed的祖先元素</p>
+
+<p>3.固顶定位|fixed
+    属于绝对定位的一个子类，包含块是viewport。</p>
+
+<pre><code>理论永远是枯燥的，以下上我学习时写得例子。就像我说的，这是我学习时写的例子，所以，样子可以说是奇丑无比，以至于我都不愿意把它丑陋的样子展示出来，所以，以下只给除html以及css的源代码。
+</code></pre>
+
+<p>default.html</p>
+
+<p>`&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;XHTML&nbsp;1.0&nbsp;Strict//EN&quot;&nbsp;&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html&nbsp;lang=&quot;zh-CN&quot;&nbsp;xml:lang=&quot;zh-CN&quot;&nbsp;xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+&lt;meta&nbsp;http-equiv=&quot;Content-Type&quot;&nbsp;content=&quot;text/html;&nbsp;charset=utf-8&quot;&nbsp;/&gt;
+&lt;meta&nbsp;name=&quot;Author&quot;&nbsp;content=&quot;&quot;&nbsp;/&gt;
+&lt;link&nbsp;href=&quot;style.css&quot;&nbsp;rel=&quot;stylesheet&quot;&nbsp;type=&quot;text/css&quot;&nbsp;media=&quot;screen&quot;&nbsp;title=&quot;position&quot;&nbsp;/&gt;
+&lt;title&gt;Position&nbsp;example&lt;/title&gt;
+&lt;/head&gt;</p>
+
+<p>&lt;body&gt;
+&nbsp;&nbsp;&lt;div&nbsp;id=&quot;content&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox0&quot;&gt;myBox0&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox1&quot;&gt;myBox1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox6&quot;&gt;myBox6&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox2&quot;&gt;myBox2
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox5&quot;&gt;myBox5&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox3&quot;&gt;myBox3&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox4&quot;&gt;myBox4&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox7&quot;&gt;myBox7&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+`</p>
+
+<p>style.css</p>
+
+<p>`*{
+&nbsp;&nbsp;margin:&nbsp;0;
+&nbsp;&nbsp;padding:&nbsp;0;
+}
+body{
+&nbsp;&nbsp;text-align:&nbsp;center;
+}</p>
+
+<h1>content{</h1>
+
+<p>&nbsp;&nbsp;width:&nbsp;800px;
+&nbsp;&nbsp;height:&nbsp;100%;
+&nbsp;&nbsp;margin:&nbsp;0&nbsp;auto;
+&nbsp;&nbsp;background:&nbsp;Fuchsia;
+&nbsp;&nbsp;text-align:&nbsp;left;
+}</p>
+
+<h1>myBox0{</h1>
+
+<p>&nbsp;&nbsp;width:&nbsp;200px;
+&nbsp;&nbsp;height:&nbsp;300px;
+&nbsp;&nbsp;background:&nbsp;red;
+}</p>
+
+<h1>myBox1{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;relative;
+&nbsp;&nbsp;left:&nbsp;20px;
+&nbsp;&nbsp;top:&nbsp;20px;
+&nbsp;&nbsp;width:&nbsp;100px;
+&nbsp;&nbsp;height:&nbsp;200px;
+&nbsp;&nbsp;background:&nbsp;Aqua;
+}</p>
+
+<h1>myBox2{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;absolute;
+&nbsp;&nbsp;left:&nbsp;20px;
+&nbsp;&nbsp;top:&nbsp;20px;
+&nbsp;&nbsp;width:&nbsp;200px;
+&nbsp;&nbsp;height:&nbsp;300px;
+&nbsp;&nbsp;background:&nbsp;yellow;
+}</p>
+
+<h1>myBox3{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;static;
+&nbsp;&nbsp;width:&nbsp;300px;
+&nbsp;&nbsp;height:&nbsp;400px;
+&nbsp;&nbsp;background:&nbsp;orange;
+}</p>
+
+<h1>myBox4{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;fixed;
+&nbsp;&nbsp;top:&nbsp;100px;
+&nbsp;&nbsp;right:&nbsp;300px;
+&nbsp;&nbsp;width:&nbsp;100px;
+&nbsp;&nbsp;height:&nbsp;50px;
+&nbsp;&nbsp;background:&nbsp;#fff;
+}</p>
+
+<h1>myBox5{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;absolute;
+&nbsp;&nbsp;left:&nbsp;20px;
+&nbsp;&nbsp;top:&nbsp;80px;
+&nbsp;&nbsp;width:&nbsp;120px;
+&nbsp;&nbsp;height:&nbsp;30px;
+&nbsp;&nbsp;background:&nbsp;blue;
+}</p>
+
+<h1>myBox6{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;absolute;
+&nbsp;&nbsp;left:&nbsp;20px;
+&nbsp;&nbsp;top:&nbsp;80px;
+&nbsp;&nbsp;width:&nbsp;120px;
+&nbsp;&nbsp;height:&nbsp;30px;
+&nbsp;&nbsp;background:&nbsp;green;
+}</p>
+
+<h1>myBox7{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;absolute;
+&nbsp;&nbsp;left:&nbsp;120px;
+&nbsp;&nbsp;top:&nbsp;180px;
+&nbsp;&nbsp;width:&nbsp;50px;
+&nbsp;&nbsp;height:&nbsp;50px;
+&nbsp;&nbsp;background:&nbsp;black;
+}
+`</p>
+
+	</div>
+</div>
+
+		
+<div class="entry">
+	<div class="entry-hd">
+		<h2>
+			<a href="/posts/css-written-order">[CSS]Mozilla建议的CSS书写顺序</a>
+		</h2>
+
+		<div class="meta">
+			<span class="time">2007-05-07 18:51:03</span>
+		</div>
+
+	</div>
+
+	<div class="entry-bd">
+		<ul>
+<li>mozilla.org Base Styles</li>
+<li>maintained by fantasai</li>
+<li>(classes defined in the Markup Guide - http://mozilla.org/contribute/writing/markup)
+<em>/
+/</em> Suggested order:
+//显示属性</li>
+<li>display</li>
+<li>list-style</li>
+<li>position</li>
+<li>float</li>
+<li>clear
+//自身属性</li>
+<li>width</li>
+<li>height</li>
+<li>margin</li>
+<li>padding</li>
+<li>border</li>
+<li>background
+//文本属性</li>
+<li>color</li>
+<li>font</li>
+<li>text-decoration</li>
+<li>text-align</li>
+<li>vertical-align</li>
+<li>white-space</li>
+<li>other text</li>
+<li>content
+*
+*/</li>
+</ul>
+
+	</div>
+</div>
+
+
+	
+
+	
+
+
+<ul class="pagination-wrapper">
+
+		<li>
+			<a href="/page/5">&laquo;</a>
+		</li>
+
+		
+<li >
+	<a href="/page/1" data-page="1">1</a>
+</li>
+
+		
+<li >
+	<a href="/page/2" data-page="2">2</a>
+</li>
+
+		
+<li >
+	<a href="/page/3" data-page="3">3</a>
+</li>
+
+		
+<li >
+	<a href="/page/4" data-page="4">4</a>
+</li>
+
+		
+<li >
+	<a href="/page/5" data-page="5">5</a>
+</li>
+
+		
+<li class="on">
+	<a href="/page/6" data-page="6">6</a>
+</li>
+
+		
+<li >
+	<a href="/page/7" data-page="7">7</a>
+</li>
+
+
+		<li>
+			<a href="/page/7">&raquo;</a>
+		</li>
+
+</ul>
+
+</div>
+
+    <div class="footer">
+      <div class="copyright">
+        &copy; Copyright 2005 - 2015 <a href="http://gaowhen.com/">GaoWhen高H温</a><span>Made By</span><a href="https://twitter.com/gaowhen">Miko Gao aka 糖伴西红柿</a>
+      </div>
+    </div>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/common.js"></script>
+    
+<script src="/static/js/index.js"></script>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
