@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">GaoWhen高H温</title>
   <id>http://gaowhen.com/rss.xml</id>
-  <updated>2015-08-03T10:43:43.035522Z</updated>
+  <updated>2015-08-03T16:51:43.074732Z</updated>
   <link href="http://gaowhen.com/" />
   <link href="http://gaowhen.com/rss.xml" rel="self" />
   <author>
@@ -10,6 +10,36 @@
   </author>
   <subtitle type="text">「文不能测字 武不能防身」</subtitle>
   <generator>Werkzeug</generator>
+  <entry xml:base="http://gaowhen.com/rss.xml">
+    <title type="text">Summer</title>
+    <id>http://gaowhen.com/summer/</id>
+    <updated>2015-08-03T16:46:03Z</updated>
+    <published>2015-08-03T16:46:03Z</published>
+    <link href="http://gaowhen.com/posts/summer/" />
+    <author>
+      <name>Miko Gao aka 糖伴西红柿</name>
+    </author>
+    <content type="html">&lt;h3&gt;intro&lt;/h3&gt;
+
+&lt;p&gt;即使明明知道现在已经有非常多的&lt;a href=&quot;https://www.staticgen.com/&quot;&gt;静态博客生成器&lt;/a&gt;了，最近我还是造了一个&lt;a href=&quot;http://github.com/gaowhen/summer&quot;&gt;轮子&lt;/a&gt;。一方面自己用来学习 python ，另一方面我仅用过的 &lt;a href=&quot;http://hexo.io&quot;&gt;hexo&lt;/a&gt; 并不能满足我的需求。因为我写文章的频率很低，所以每次我都忘了命令行命令，都要去查文档；此外，每次在命令行中新建了文章之后，在一堆文件里面找到那个新文件着实有些繁琐。&lt;/p&gt;
+
+&lt;h3&gt;stack&lt;/h3&gt;
+
+&lt;p&gt;后端虽然其实可以不用数据库的，但是为了了解一些相关的东西，我选择了轻量的 &lt;a href=&quot;%5Bhttps://www.sqlite.org/&quot;&gt;sqlite&lt;/a&gt;。因为工作中也用到 &lt;a href=&quot;http://flask.pocoo.org&quot;&gt;flask&lt;/a&gt;，再加上 &lt;a href=&quot;https://nodejs.org/&quot;&gt;nodejs&lt;/a&gt; 中的 &lt;a href=&quot;http://expressjs.com/&quot;&gt;express&lt;/a&gt; 和 &lt;a href=&quot;http://flask.pocoo.org&quot;&gt;flask&lt;/a&gt; 同源，所以选择了 &lt;a href=&quot;http://flask.pocoo.org&quot;&gt;flask&lt;/a&gt;。&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;前端的编辑器是利用 &lt;a href=&quot;http://codemirror.net/&quot;&gt;code mirror&lt;/a&gt;  &lt;a href=&quot;http://www.dropzonejs.com/&quot;&gt;dropzone&lt;/a&gt; 仿的 &lt;a href=&quot;https://ghost.org%5D&quot;&gt;ghost&lt;/a&gt;的 &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;markdown&lt;/a&gt; 编辑器。因为不愿意写 UI，也因为 &lt;a href=&quot;https://github.com/lepture/yue.css&quot;&gt;yue.css&lt;/a&gt; 确实不错，样式方面除了调整了下字体顺序，全部交给了  &lt;a href=&quot;https://github.com/lepture/yue.css&quot;&gt;yue.css&lt;/a&gt;。如你所见，甚至 &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;markdown&lt;/a&gt; 编辑器的样式，以及各种 button 的样式我都没写。借用同事的一句话，「这是一个前端写后端，后端写前端的项目」。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/static/img/GaoWhenH_2015-08-03_16-10-12.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+&lt;h3&gt;more&lt;/h3&gt;
+
+&lt;p&gt;名字就很俗套地用了夏天出生的 &lt;a href=&quot;https://instagram.com/p/5rpK83ND3g/?taken-by=gaowhen&quot;&gt;Mr. Summer&lt;/a&gt; 的名字，谢谢他和他的妈妈，连多年悲观主义者的我现在都是乐观主义者了。&lt;/p&gt;
+
+&lt;p&gt;因为觉得可以&lt;a href=&quot;http://github.com/gaowhen/summer&quot;&gt;这个项目&lt;/a&gt;可以作为一些新东西的试验田，所以应该会持续维护下去。目前已经有远去澳洲的马爷的两个 pr，期待更多的 pr 。&lt;/p&gt;
+</content>
+  </entry>
   <entry xml:base="http://gaowhen.com/rss.xml">
     <title type="text">黑人自黑</title>
     <id>http://gaowhen.com/hei-ren-yu-zi-hei/</id>
