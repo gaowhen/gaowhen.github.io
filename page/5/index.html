@@ -31,6 +31,25 @@
 <div class="entry">
 	<div class="entry-hd">
 		<h2>
+			<a href="/posts/rsync-ssh-sync-a-local-folder-to-server">rsync + ssh 同步本地文件夹至服务器</a>
+		</h2>
+
+		<div class="meta">
+			<span class="time">2010-09-06 22:42:16</span>
+		</div>
+
+	</div>
+
+	<div class="entry-bd">
+		<p>之前有介绍过使用 <a href="http://www.dropbox.com/referrals/NTI2NTk3OTk">dropbox</a>来同步 vimwiki <a href="http://gaowhen.com/post/anytime-anywhere-vimwiki.html">随时随地的 !VimWiki</a>。之前觉得这样就足够了，没必要放到网络上。不过最近越来越觉得个人知识管理 wiki 重要了，不过本机的文件之前没规划好，wiki 模版也一直没做，有点懒散。既然是知识，何不共享出来，也能敦促自己多学习、勤整理。不过觉得发布的时候有些麻烦，之前看到 <a href="http://gracecode.com">明城</a> 的 wiki 使用 rsync 同步的，于是我也折腾了下。以下是使用 rsync 和 ssh 同步本地文件到服务器（bluehost）的方法。其他服务器不清楚，bluehost 是默认安装了 rsync 的。</p>
+
+	</div>
+</div>
+
+		
+<div class="entry">
+	<div class="entry-hd">
+		<h2>
 			<a href="/posts/mercurial-hg-profile-hgrc">Mercurial Hg 的配置文件 hgrc</a>
 		</h2>
 
@@ -307,66 +326,6 @@ img{
         border: 1px solid red !important;
     }
     </pre>  <img src="/images/" alt="all-is-a-box"></p>
-
-	</div>
-</div>
-
-		
-<div class="entry">
-	<div class="entry-hd">
-		<h2>
-			<a href="/posts/definition-list">定义列表: DL DT DD</a>
-		</h2>
-
-		<div class="meta">
-			<span class="time">2009-04-29 11:04:43</span>
-		</div>
-
-	</div>
-
-	<div class="entry-bd">
-		<p><quote>定义列表和其他类型的列表稍有不同，它由两部分组成：名称和定义。DT 指定名称，为内联元素。DD 指定定义，为块级元素。</p>
-
-<p>标准属性</p>
-
-<p>id, class, title, style, dir, lang, xml:lang</p>
-
-<p>事件属性</p>
-
-<p>onclick, ondblclick, onmousedown, onmouseup, onmouseover, 
-onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
-</quote></p>
-
-<p>示例：
-<textarea class="code" rows="10" cols="50">&lt;dl&gt;
-&lt;dt&gt;标题&lt;/dt&gt;
-&lt;dd&gt;内容1&lt;/dd&gt;
-&lt;dd&gt;内容2&lt;/dd&gt;
-&lt;/dl&gt;&nbsp;</textarea></p>
-
-<p>dl —— define list——定义列表</p>
-
-<p>dt —— define list title —— 用于生成定义列表中各列表项的标题，重复使用可以定义多个列表项的标题。注意：其中不能包含 hx 元素。</p>
-
-<p>dd —— define list define —— 用于生成定义列表各列表项的说明文字段，重复使用可以定义多个说明文字段。dd是对应dt的简短说明或解释。 </p>
-
-<p>dl 列表中有较为强烈的“描述”、“解释”、“补充”意义。 dt 和 dd 有明显的逻辑关系，dd 从属于 dt，dd 中的内容是对 dt 的“描述”、“解释”、“补充”。
-另外，dd 之间虽然是平行关系，但是其描述的内容是多角度的，不同于单纯的 li。</p>
-
-<p>例如：</p>
-
-<p><textarea class="code" rows="10" cols="50">&lt;dl&gt;
-&nbsp;&nbsp;&lt;dt&gt;JavaScript权威指南&lt;/dt&gt;
-&nbsp;&nbsp;&lt;dd&gt;出版社：xxx&lt;/dd&gt;
-&nbsp;&nbsp;&lt;dd&gt;ISBN:&nbsp;xxx&lt;/dd&gt;
-&nbsp;&nbsp;&lt;dd&gt;售价：xxx&lt;/dd&gt;
-&lt;/dl&gt;</textarea></p>
-
-<p><textarea class="code" rows="10" cols="50">&lt;ul&gt;
-&nbsp;&nbsp;&lt;li&gt;JavaScript权威指南&lt;/li&gt;
-&nbsp;&nbsp;&lt;li&gt;JavaScript&nbsp;Dom&nbsp;高级程序设计&lt;/li&gt;
-&nbsp;&nbsp;&lt;li&gt;ppk&nbsp;谈&nbsp;JavaScript&lt;/li&gt;
-&lt;/ul&gt;</textarea></p>
 
 	</div>
 </div>
