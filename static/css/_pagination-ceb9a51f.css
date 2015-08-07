@@ -1,0 +1,34 @@
+.yue .pagination-wrapper {
+  margin-top: 15px;
+  text-align: right;
+}
+@media $mobile {
+  .yue .pagination-wrapper {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+}
+.yue .pagination-wrapper li {
+  display: inline-block;
+}
+.yue .pagination-wrapper li a {
+  display: block;
+  padding: 5px 8px;
+  background-color: #fff;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #fff;
+  font-size: 14px;
+}
+.yue .pagination-wrapper li a:hover {
+  border-bottom: 3px solid #ccc;
+}
+.yue .pagination-wrapper li span {
+  margin: 0 15px;
+}
+.yue .pagination-wrapper .on a {
+  border-bottom: 3px solid #ccc;
+}
+
+/*# sourceMappingURL=map/_pagination.css.map */
