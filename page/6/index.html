@@ -31,6 +31,91 @@
 <div class="entry">
 	<div class="entry-hd">
 		<h2>
+			<a href="/posts/css-box-model">CSS 盒模型</a>
+		</h2>
+
+		<div class="meta">
+			<span class="time">2009-06-05 17:38:20</span>
+		</div>
+
+	</div>
+
+	<div class="entry-bd">
+		<div>整理自：[The CSS Box Model](http://css-tricks.com/the-css-box-model/)
+
+中文：[CSS 盒模型](http://www.qianduan.net/css-box-model.html)
+
+版权所有，转载请注明出处，多谢！
+
+* * *
+</div>
+
+<p><strong>网页设计中的每个元素都是长方形的盒子。</strong>盒子的尺寸是怎样精确计算的，请看下图：
+    <img src="/images/" alt="thebox"></p>
+
+<p>如果是 Firebug 用户的话(基本和前端有关的都会用到 Firebug 吧 - 糖伴西红柿)，就会很熟悉下面的图表了。
+    这个图表很好地展示了作用于页面上任意盒子的数值。
+    <img src="/images/" alt="firebug"></p>
+
+<p>注意以上两个例子中，margin 都是白色的。Margin 比较特别，它不会影响盒子本身的大小，但是它会
+    影响和盒子有关的其他内容，因此 margin 是盒模型的一个重要的组成部分。</p>
+
+<p>盒子本身的大小是这样计算的：
+    <table cellpadding="20" id="size-table">        <tbody><tr>     <td><strong>Width</strong></td>      <td>width + padding-left + padding-right + border-left + border-right</td>      </tr>       <tr>        <td><strong>Height</strong></td>     <td>height + padding-top + padding-bottom + border-top + border-bottom</td>     </tr>       </tbody>    </table>    </p>
+
+<h2>值未声明的情况</h2>
+
+<p>如果未声明 padding 或者 border，那他们或者值为零(使用 css reset 时)，或者为浏览器的默认值(很可能不是零，尤其是那些通常没有重置的表单元素) </p>
+
+<h2>块级盒的默认宽度</h2>
+
+<p>如果未声明宽度，并且盒子是静态或者相对定位的，宽度会保持 100％的 宽度，padding 和 border 会向内推动，而不是向外扩展。</p>
+
+<p>但是，如果明确设置盒子的宽度为 100％，那么 padding 就会向外延展。
+    <img src="/images/" alt="weird"></p>
+
+<p>The lesson here being that the default width of a box isn’t really 100% but a less tangible “whatever is left”. This is particularly valuable to know, since there are lots of circumstances where it is immensely useful to either set or not set a width.</p>
+
+<p>要注意的是，盒子的默认宽度并不真的是 100％，而是剩下的可能值(应该是说，剩余真实存在的宽度 － 糖伴西红柿)。应该了解这个特殊值，因为很多情况下，它对于设置/不设置宽度都是非常有用的。</p>
+
+<p>我遇到的最大的麻烦就是 textarea(文本框) 元素了，它们需要设为宽度为所需的&quot;cols&quot;属性，并且不能包含子元素。因此通常需要明确的设置 textarea 的宽度为 100%，但有 padding 时，就会延展 textarea 的宽度。固定宽度环境下，通常可以设置为合适的像素值宽度，但是变宽情况就没那么幸运了。</p>
+
+<h2>无宽度的绝对定位盒子</h2>
+
+<p>未设定宽度的绝对定位的盒子的表现有点不一样。它们的宽度只需要适合它们所包含的内容即可。因此，如果盒中只有一个单词，盒子就会像那个词的表现一样宽。如果变成两个词，盒子的宽度也会相应增加。
+    <img src="/images/" alt="abs-width"></p>
+
+<p>这种情况会持续到盒子的宽度达到父元素宽度的 100%（最近的相对定位的父元素或者浏览器窗口），然后就会折行。</p>
+
+<p>对盒子来说，垂直扩展以适应包含的内容是很自然的。值得奇怪的是，不仅仅是不同平台下的文本表现不同，不同的浏览器处理这个问题时，也有很多怪癖。
+    <img src="/images/" alt="text-render-abs"></p>
+
+<h2>无宽度浮动盒子</h2>
+
+<p>同无宽度的绝对定位盒子的表现一样。盒子的宽度只需要扩展到所包含内容的宽度，直到其父元素的宽度（其父元素不必是相对定位的）。由于这些无宽度盒子的脆弱性，我们要学到的是关键任务模式的时候它们是不能依赖的，像总体页面布局中。如果浮动一列作为侧边栏使用，并指望那些内部元素（如图片）来负责包含它的宽度，你就是在自找麻烦。</p>
+
+<h2>内联元素也是盒子</h2>
+
+<p>我们这里一直把重点放在块级元素的盒子上。很容易就可以把块级元素想象为盒子，但是内联元素也是盒子。可以把他们想象为非常长而窄的长方形，它们也可以像其它盒子一样有 margin, padding he border
+    <img src="/images/" alt="span"> </p>
+
+<p>折行使它看起来有些不好理解。如上所示的左 margin 把盒子推向右边，但是只在第一行有效，因为那是盒子的起点。padding 正常的应用在文本的上部或下部，当折行时它会忽略上面行的 padding 并且以行高(line-height)要求的位置作为起点。透明背景是为了让效果看起来更清楚。</p>
+
+<h2>亲眼目睹一下</h2>
+
+<p>想看看组成页面的每个单独的“盒子”吗？试着把这行代码暂时放入样式表：
+    <pre lang="html4tstrict">   * {
+        border: 1px solid red !important;
+    }
+    </pre>  <img src="/images/" alt="all-is-a-box"></p>
+
+	</div>
+</div>
+
+		
+<div class="entry">
+	<div class="entry-hd">
+		<h2>
 			<a href="/posts/definition-list">定义列表: DL DT DD</a>
 		</h2>
 
@@ -438,55 +523,6 @@ body{
 &nbsp;&nbsp;background:&nbsp;black;
 }
 `</p>
-
-	</div>
-</div>
-
-		
-<div class="entry">
-	<div class="entry-hd">
-		<h2>
-			<a href="/posts/css-written-order">[CSS]Mozilla建议的CSS书写顺序</a>
-		</h2>
-
-		<div class="meta">
-			<span class="time">2007-05-07 18:51:03</span>
-		</div>
-
-	</div>
-
-	<div class="entry-bd">
-		<ul>
-<li>mozilla.org Base Styles</li>
-<li>maintained by fantasai</li>
-<li>(classes defined in the Markup Guide - http://mozilla.org/contribute/writing/markup)
-<em>/
-/</em> Suggested order:
-//显示属性</li>
-<li>display</li>
-<li>list-style</li>
-<li>position</li>
-<li>float</li>
-<li>clear
-//自身属性</li>
-<li>width</li>
-<li>height</li>
-<li>margin</li>
-<li>padding</li>
-<li>border</li>
-<li>background
-//文本属性</li>
-<li>color</li>
-<li>font</li>
-<li>text-decoration</li>
-<li>text-align</li>
-<li>vertical-align</li>
-<li>white-space</li>
-<li>other text</li>
-<li>content
-*
-*/</li>
-</ul>
 
 	</div>
 </div>
