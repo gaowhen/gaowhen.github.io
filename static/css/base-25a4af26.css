@@ -522,5 +522,34 @@ a {
 .yue .pagination-wrapper .on a {
   border-bottom: 3px solid #ccc;
 }
+.yue .btn-edit,
+.yue .btn-del,
+.yue .btn-save,
+.yue .btn-save-draft,
+.yue .btn-publish,
+.yue .btn-unpublish,
+.yue .btn-build,
+.yue .btn-deploy,
+.yue .btn-new {
+  font-size: 16px;
+  background-color: #5ba4e5;
+  border: 1px solid #308ddf;
+  color: #fff;
+  padding: 7px 10px;
+  line-height: 1.5;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+.yue .btn-edit:hover,
+.yue .btn-del:hover,
+.yue .btn-save:hover,
+.yue .btn-save-draft:hover,
+.yue .btn-publish:hover,
+.yue .btn-unpublish:hover,
+.yue .btn-build:hover,
+.yue .btn-deploy:hover,
+.yue .btn-new:hover {
+  color: #fff;
+}
 
 /*# sourceMappingURL=map/base.css.map */

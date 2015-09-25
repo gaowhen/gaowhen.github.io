@@ -15,7 +15,7 @@
     <link href="/rss.xml" rel="alternate" type="application/rss+xml" title="GaoWhen高H温" />
     
     <title>GaoWhen高H温</title>
-    <link rel="stylesheet" href="/static/css/base-0bf75d19.css"/>
+    <link rel="stylesheet" href="/static/css/base-25a4af26.css"/>
     
   </head>
   <body class="yue">
@@ -27,21 +27,134 @@
     </div>
     
 <div class="content">
-		
+    
 <div class="entry">
-	<div class="entry-hd">
-		<h2>
-			<a href="/posts/css-box-model">CSS 盒模型</a>
-		</h2>
+  <div class="entry-hd">
+    <h2>
+      <a href="/posts/ie-img-bug">IE下img多余5像素空白</a>
+    </h2>
 
-		<div class="meta">
-			<span class="time">2009-06-05 17:38:20</span>
-		</div>
+    <div class="meta">
+      <span class="time">2009-06-08 12:56:28</span>
+    </div>
 
-	</div>
+  </div>
 
-	<div class="entry-bd">
-		<div>整理自：[The CSS Box Model](http://css-tricks.com/the-css-box-model/)
+  <div class="entry-bd">
+    <p><div><a href="http://www.qianduan.net/img-excess-ofe-5-pixel.html">IE下img多余5像素空白</a></p>
+
+<pre><code>版权所有，转载请注明出处，多谢！
+</code></pre>
+
+<hr>
+
+<p></div>
+嗯，开场先胡扯几句不相关地感言。最近的工作让我有了很多实践的机会，同时也让我收获颇丰。在群里聊天的时候也提到过，所有的学习过程，最好是理论－实践－再理论－再实践。。。的一个循环往复的过程。这里说的理论是个比较宽泛地概念，其中包括书本理论，也包括对实践地总结。只有理论没有实践，往往造成眼高手低，想得好，做得差；只一味地实践却不通过理论地学习和总结，看起来好像忙忙碌碌，到头来会两手空空。</p>
+
+<p>最近地实践中，越来越觉得 li 元素中包含 a img 元素的时候会比较麻烦，需要注意，当然，问题还是一如既往的出现在 IE 下。以下为其中一例：</p>
+
+<p>html
+<pre lang="html4strict"><textarea class="code" rows="10" cols="50">&lt;ul&gt;
+&nbsp;&nbsp;&lt;li&gt;&lt;a&nbsp;href=&quot;#&quot;&gt;&lt;img&nbsp;src=&quot;img/temp.jpg&quot;&nbsp;alt=&quot;&quot;&nbsp;/&gt;&lt;/a&gt;&lt;/li&gt;
+&nbsp;&nbsp;&lt;li&gt;&lt;a&nbsp;href=&quot;#&quot;&gt;&lt;img&nbsp;src=&quot;img/temp.jpg&quot;&nbsp;alt=&quot;&quot;&nbsp;/&gt;&lt;/a&gt;&lt;/li&gt;
+&nbsp;&nbsp;&lt;li&gt;&lt;a&nbsp;href=&quot;#&quot;&gt;&lt;img&nbsp;src=&quot;img/temp.jpg&quot;&nbsp;alt=&quot;&quot;&nbsp;/&gt;&lt;/a&gt;&lt;/li&gt;
+&nbsp;&nbsp;&lt;li&gt;&lt;a&nbsp;href=&quot;#&quot;&gt;&lt;img&nbsp;src=&quot;img/temp.jpg&quot;&nbsp;alt=&quot;&quot;&nbsp;/&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</textarea>
+</pre>css
+<pre lang="html4strict">ul{
+    width: 280px;
+}
+ul li{
+    display:block;
+    height:57px;
+    width:277px;
+}</pre>其中 temp.jpg 尺寸为 277×57</p>
+
+<p>Firefox 下的正常表现：
+<img src="/images/" alt="demo-ff">
+IE6 下的非正常表现：
+<img src="/images/" alt="demo-ie">
+很明显地可以看到 IE 中，li 的表现高度，并非我们设定的 57px，而是比其要高，这是因为 img 下面多出了 5px 的空白。</p>
+
+<h2>解决方法 一</h2>
+
+<p>使 li 浮动，并设置 img 为块级元素
+<pre lang="html4strict">ul{
+    width: 280px;
+}
+ul li{
+    float:left;
+    display:block;
+    height:57px;
+    width:277px;
+}
+img{
+    display: block;
+}</pre></p>
+
+<h2>解决方法 二</h2>
+
+<p>设置 ul 的 font-size:0;
+<pre lang="html4strict">ul{
+    width: 280px;
+    font-size: 0;
+}
+ul li{
+    display:block;
+    height:57px;
+    width:277px;
+}</pre></p>
+
+<h2>解决方法 三</h2>
+
+<p>设置 img 的 vertical-align: bottom;
+<pre lang="html4strict">ul{
+    width: 280px;
+    font-size: 0;
+}
+ul li{
+    display:block;
+    height:57px;
+    width:277px;
+}
+img{
+    vertical-align:bottom;
+}</pre></p>
+
+<h2>解决方法 四</h2>
+
+<p>设置 img 的 margin-bottom: -5px;
+<pre lang="html4strict">ul{
+    width: 280px;
+    font-size: 0;
+}
+ul li{
+    display:block;
+    height:57px;
+    width:277px;
+}
+img{
+    margin-bottom: -5px;
+}</pre>可以下载 <a href="http://cn.ziddu.com/download/328967/demo.zip.html">demo</a> 来看</p>
+
+  </div>
+</div>
+
+    
+<div class="entry">
+  <div class="entry-hd">
+    <h2>
+      <a href="/posts/css-box-model">CSS 盒模型</a>
+    </h2>
+
+    <div class="meta">
+      <span class="time">2009-06-05 17:38:20</span>
+    </div>
+
+  </div>
+
+  <div class="entry-bd">
+    <div>整理自：[The CSS Box Model](http://css-tricks.com/the-css-box-model/)
 
 中文：[CSS 盒模型](http://www.qianduan.net/css-box-model.html)
 
@@ -109,24 +222,24 @@
     }
     </pre>  <img src="/images/" alt="all-is-a-box"></p>
 
-	</div>
+  </div>
 </div>
 
-		
+    
 <div class="entry">
-	<div class="entry-hd">
-		<h2>
-			<a href="/posts/definition-list">定义列表: DL DT DD</a>
-		</h2>
+  <div class="entry-hd">
+    <h2>
+      <a href="/posts/definition-list">定义列表: DL DT DD</a>
+    </h2>
 
-		<div class="meta">
-			<span class="time">2009-04-29 11:04:43</span>
-		</div>
+    <div class="meta">
+      <span class="time">2009-04-29 11:04:43</span>
+    </div>
 
-	</div>
+  </div>
 
-	<div class="entry-bd">
-		<p><quote>定义列表和其他类型的列表稍有不同，它由两部分组成：名称和定义。DT 指定名称，为内联元素。DD 指定定义，为块级元素。</p>
+  <div class="entry-bd">
+    <p><quote>定义列表和其他类型的列表稍有不同，它由两部分组成：名称和定义。DT 指定名称，为内联元素。DD 指定定义，为块级元素。</p>
 
 <p>标准属性</p>
 
@@ -169,24 +282,24 @@ onmousemove, onmouseout, onkeypress, onkeydown, onkeyup
 &nbsp;&nbsp;&lt;li&gt;ppk&nbsp;谈&nbsp;JavaScript&lt;/li&gt;
 &lt;/ul&gt;</textarea></p>
 
-	</div>
+  </div>
 </div>
 
-		
+    
 <div class="entry">
-	<div class="entry-hd">
-		<h2>
-			<a href="/posts/private-member-of-javascript">Javascript的私有成员</a>
-		</h2>
+  <div class="entry-hd">
+    <h2>
+      <a href="/posts/private-member-of-javascript">Javascript的私有成员</a>
+    </h2>
 
-		<div class="meta">
-			<span class="time">2009-03-23 21:54:17</span>
-		</div>
+    <div class="meta">
+      <span class="time">2009-03-23 21:54:17</span>
+    </div>
 
-	</div>
+  </div>
 
-	<div class="entry-bd">
-		<p>对象</p>
+  <div class="entry-bd">
+    <p>对象</p>
 
 <p>Javascript 根本上是和对象相关的。数组是对象。函数是对象。对象是对象。那什么是对象呢？对象是名-值对的集合。名是字符串，值可以是字符串，数字，布尔值或者对象(包括数组和函数)。通常对象是像哈希表一样执行地，这样便于值地快速检索。</p>
 
@@ -344,240 +457,81 @@ sp;&nbsp;}
 <p>原文地址：<a href="http://www.crockford.com/javascript/private.html">http://www.crockford.com/javascript/private.html</a>
 译文地址：<a href="http://www.qianduan.net/?p=6580">http://www.qianduan.net/?p=6580</a></p>
 
-	</div>
+  </div>
 </div>
 
-		
+    
 <div class="entry">
-	<div class="entry-hd">
-		<h2>
-			<a href="/posts/farewell-beyond">再见理想，再见Beyond</a>
-		</h2>
+  <div class="entry-hd">
+    <h2>
+      <a href="/posts/farewell-beyond">再见理想，再见Beyond</a>
+    </h2>
 
-		<div class="meta">
-			<span class="time">2008-06-30 15:53:57</span>
-		</div>
+    <div class="meta">
+      <span class="time">2008-06-30 15:53:57</span>
+    </div>
 
-	</div>
+  </div>
 
-	<div class="entry-bd">
-		<p>满怀理想的家驹辞世15年后，所谓的娱乐圈依然只有娱乐没有乐队</p>
+  <div class="entry-bd">
+    <p>满怀理想的家驹辞世15年后，所谓的娱乐圈依然只有娱乐没有乐队</p>
 
 <p><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="400" height="300"><param name="movie" value="http://6.cn/player.swf?flag=0&vid=WgKcjDpfYBsPEkluZxyVJA"><param name="quality" value="high"><param name="play" value="False"><embed src="http://6.cn/player.swf?flag=0&vid=WgKcjDpfYBsPEkluZxyVJA" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="400" height="300" play="False"></embed></object></p>
 
-	</div>
-</div>
-
-		
-<div class="entry">
-	<div class="entry-hd">
-		<h2>
-			<a href="/posts/css-position-example">[CSS]position:static|relative|absolute|fixed</a>
-		</h2>
-
-		<div class="meta">
-			<span class="time">2007-05-12 15:15:45</span>
-		</div>
-
-	</div>
-
-	<div class="entry-bd">
-		<p>1.相对定位|relative
-    相对于元素在文档流中的初始位置。
-    相对定位的元素占据文档流，属于普通流定位模型的一部分，对一个元素进行相对定位，这个元素相对于它的起点(即在文档中的位置)进行移动top/left/right/bottom。使用相对定位时，无论是否进行移动，元素仍占据原来空间，移动元素会导致覆盖其他框。
-2.绝对定位|absolute
-    相对于最近的已定位的祖先元素。
-    绝对定位使元素与文档流无关，不占据文档空间。普通流中的元素会表现的好像绝对定位的元素并不存在一样。绝对定位的元素的位置相对于最近的已定位的祖先元素。若元素没有已定位的祖先元素，那么元素的位置相对于最初的包含块，依据浏览器不同，最初包含块可能为canvas或者html元素。
-    何谓 已定位的祖先元素（包含块） ？
-    Take a look at what the CSS 2.1 specification has to say about containing blocks: 
-    If the element has ‘position: absolute’, the containing block is established by the nearest ancestor with a ‘position’ of ‘absolute’, ‘relative’ or ‘fixed’ ... If there is no such ancestor, the containing block is the initial containing block. 
-        祖先元素（包含块）是指具有position:absolute|relative|fixed的祖先元素</p>
-
-<p>3.固顶定位|fixed
-    属于绝对定位的一个子类，包含块是viewport。</p>
-
-<pre><code>理论永远是枯燥的，以下上我学习时写得例子。就像我说的，这是我学习时写的例子，所以，样子可以说是奇丑无比，以至于我都不愿意把它丑陋的样子展示出来，所以，以下只给除html以及css的源代码。
-</code></pre>
-
-<p>default.html</p>
-
-<p>`&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;XHTML&nbsp;1.0&nbsp;Strict//EN&quot;&nbsp;&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
-&lt;html&nbsp;lang=&quot;zh-CN&quot;&nbsp;xml:lang=&quot;zh-CN&quot;&nbsp;xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-&lt;head&gt;
-&lt;meta&nbsp;http-equiv=&quot;Content-Type&quot;&nbsp;content=&quot;text/html;&nbsp;charset=utf-8&quot;&nbsp;/&gt;
-&lt;meta&nbsp;name=&quot;Author&quot;&nbsp;content=&quot;&quot;&nbsp;/&gt;
-&lt;link&nbsp;href=&quot;style.css&quot;&nbsp;rel=&quot;stylesheet&quot;&nbsp;type=&quot;text/css&quot;&nbsp;media=&quot;screen&quot;&nbsp;title=&quot;position&quot;&nbsp;/&gt;
-&lt;title&gt;Position&nbsp;example&lt;/title&gt;
-&lt;/head&gt;</p>
-
-<p>&lt;body&gt;
-&nbsp;&nbsp;&lt;div&nbsp;id=&quot;content&quot;&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox0&quot;&gt;myBox0&lt;/div&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox1&quot;&gt;myBox1
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox6&quot;&gt;myBox6&lt;/div&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox2&quot;&gt;myBox2
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox5&quot;&gt;myBox5&lt;/div&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox3&quot;&gt;myBox3&lt;/div&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox4&quot;&gt;myBox4&lt;/div&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox7&quot;&gt;myBox7&lt;/div&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-`</p>
-
-<p>style.css</p>
-
-<p>`*{
-&nbsp;&nbsp;margin:&nbsp;0;
-&nbsp;&nbsp;padding:&nbsp;0;
-}
-body{
-&nbsp;&nbsp;text-align:&nbsp;center;
-}</p>
-
-<h1>content{</h1>
-
-<p>&nbsp;&nbsp;width:&nbsp;800px;
-&nbsp;&nbsp;height:&nbsp;100%;
-&nbsp;&nbsp;margin:&nbsp;0&nbsp;auto;
-&nbsp;&nbsp;background:&nbsp;Fuchsia;
-&nbsp;&nbsp;text-align:&nbsp;left;
-}</p>
-
-<h1>myBox0{</h1>
-
-<p>&nbsp;&nbsp;width:&nbsp;200px;
-&nbsp;&nbsp;height:&nbsp;300px;
-&nbsp;&nbsp;background:&nbsp;red;
-}</p>
-
-<h1>myBox1{</h1>
-
-<p>&nbsp;&nbsp;position:&nbsp;relative;
-&nbsp;&nbsp;left:&nbsp;20px;
-&nbsp;&nbsp;top:&nbsp;20px;
-&nbsp;&nbsp;width:&nbsp;100px;
-&nbsp;&nbsp;height:&nbsp;200px;
-&nbsp;&nbsp;background:&nbsp;Aqua;
-}</p>
-
-<h1>myBox2{</h1>
-
-<p>&nbsp;&nbsp;position:&nbsp;absolute;
-&nbsp;&nbsp;left:&nbsp;20px;
-&nbsp;&nbsp;top:&nbsp;20px;
-&nbsp;&nbsp;width:&nbsp;200px;
-&nbsp;&nbsp;height:&nbsp;300px;
-&nbsp;&nbsp;background:&nbsp;yellow;
-}</p>
-
-<h1>myBox3{</h1>
-
-<p>&nbsp;&nbsp;position:&nbsp;static;
-&nbsp;&nbsp;width:&nbsp;300px;
-&nbsp;&nbsp;height:&nbsp;400px;
-&nbsp;&nbsp;background:&nbsp;orange;
-}</p>
-
-<h1>myBox4{</h1>
-
-<p>&nbsp;&nbsp;position:&nbsp;fixed;
-&nbsp;&nbsp;top:&nbsp;100px;
-&nbsp;&nbsp;right:&nbsp;300px;
-&nbsp;&nbsp;width:&nbsp;100px;
-&nbsp;&nbsp;height:&nbsp;50px;
-&nbsp;&nbsp;background:&nbsp;#fff;
-}</p>
-
-<h1>myBox5{</h1>
-
-<p>&nbsp;&nbsp;position:&nbsp;absolute;
-&nbsp;&nbsp;left:&nbsp;20px;
-&nbsp;&nbsp;top:&nbsp;80px;
-&nbsp;&nbsp;width:&nbsp;120px;
-&nbsp;&nbsp;height:&nbsp;30px;
-&nbsp;&nbsp;background:&nbsp;blue;
-}</p>
-
-<h1>myBox6{</h1>
-
-<p>&nbsp;&nbsp;position:&nbsp;absolute;
-&nbsp;&nbsp;left:&nbsp;20px;
-&nbsp;&nbsp;top:&nbsp;80px;
-&nbsp;&nbsp;width:&nbsp;120px;
-&nbsp;&nbsp;height:&nbsp;30px;
-&nbsp;&nbsp;background:&nbsp;green;
-}</p>
-
-<h1>myBox7{</h1>
-
-<p>&nbsp;&nbsp;position:&nbsp;absolute;
-&nbsp;&nbsp;left:&nbsp;120px;
-&nbsp;&nbsp;top:&nbsp;180px;
-&nbsp;&nbsp;width:&nbsp;50px;
-&nbsp;&nbsp;height:&nbsp;50px;
-&nbsp;&nbsp;background:&nbsp;black;
-}
-`</p>
-
-	</div>
+  </div>
 </div>
 
 
-	
+  
 
-	
+  
 
 
 <ul class="pagination-wrapper">
 
-		<li>
-			<a href="/page/5">&laquo;</a>
-		</li>
+    <li>
+      <a href="/page/5">&laquo;</a>
+    </li>
 
-		
+    
 <li >
-	<a href="/page/1" data-page="1">1</a>
+  <a href="/page/1" data-page="1">1</a>
 </li>
 
-		
+    
 <li >
-	<a href="/page/2" data-page="2">2</a>
+  <a href="/page/2" data-page="2">2</a>
 </li>
 
-		
+    
 <li >
-	<a href="/page/3" data-page="3">3</a>
+  <a href="/page/3" data-page="3">3</a>
 </li>
 
-		
+    
 <li >
-	<a href="/page/4" data-page="4">4</a>
+  <a href="/page/4" data-page="4">4</a>
 </li>
 
-		
+    
 <li >
-	<a href="/page/5" data-page="5">5</a>
+  <a href="/page/5" data-page="5">5</a>
 </li>
 
-		
+    
 <li class="on">
-	<a href="/page/6" data-page="6">6</a>
+  <a href="/page/6" data-page="6">6</a>
 </li>
 
-		
+    
 <li >
-	<a href="/page/7" data-page="7">7</a>
+  <a href="/page/7" data-page="7">7</a>
 </li>
 
 
-		<li>
-			<a href="/page/7">&raquo;</a>
-		</li>
+    <li>
+      <a href="/page/7">&raquo;</a>
+    </li>
 
 </ul>
 
@@ -589,10 +543,8 @@ body{
       </div>
     </div>
     <script src="/static/js/base-a95fa134.js"></script>
-    <script src="/static/js/common-b0c0c8c0.js"></script>
+    <script src="/static/js/common-a0490c80.js"></script>
     
-<script src="/static/js/index-a2357e66.js"></script>
-
   </body>
 </html>
 

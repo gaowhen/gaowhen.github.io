@@ -963,27 +963,35 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
         border-right: 6px solid transparent;
         border-bottom: 6px solid #be2626; }
 
+body {
+  padding-bottom: 60px;
+}
 .editor-mod {
-  margin: 0 40px;
+  margin: 0 40px 15px;
+  border: 1px solid #dfe1e3;
 }
 .editor-mod .title {
-  width: 100%;
+  width: 95%;
   height: 60px;
   font-size: 36px;
   font-weight: 700;
   border: 0 none;
   margin: 0 40px;
+  border-bottom: 1px solid #dfe1e3;
 }
 .editor-mod .features .editor .editorwrap {
   height: 600px;
 }
 .editor-mod .editor-ft {
+  background-color: #f2f5f6;
   position: fixed;
+  z-index: 300;
   bottom: 0;
   left: 0;
   text-align: right;
   width: 100%;
   padding: 15px;
+  border-top: 1px solid #dfe1e3;
 }
 
 /*# sourceMappingURL=map/editor.css.map */

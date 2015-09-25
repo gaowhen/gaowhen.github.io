@@ -15,7 +15,7 @@
     <link href="/rss.xml" rel="alternate" type="application/rss+xml" title="GaoWhen高H温" />
     
     <title>GaoWhen高H温</title>
-    <link rel="stylesheet" href="/static/css/base-0bf75d19.css"/>
+    <link rel="stylesheet" href="/static/css/base-25a4af26.css"/>
     
   </head>
   <body class="yue">
@@ -27,21 +27,180 @@
     </div>
     
 <div class="content">
-		
+    
 <div class="entry">
-	<div class="entry-hd">
-		<h2>
-			<a href="/posts/css-written-order">[CSS]Mozilla建议的CSS书写顺序</a>
-		</h2>
+  <div class="entry-hd">
+    <h2>
+      <a href="/posts/css-position-example">[CSS]position:static|relative|absolute|fixed</a>
+    </h2>
 
-		<div class="meta">
-			<span class="time">2007-05-07 18:51:03</span>
-		</div>
+    <div class="meta">
+      <span class="time">2007-05-12 15:15:45</span>
+    </div>
 
-	</div>
+  </div>
 
-	<div class="entry-bd">
-		<ul>
+  <div class="entry-bd">
+    <p>1.相对定位|relative
+    相对于元素在文档流中的初始位置。
+    相对定位的元素占据文档流，属于普通流定位模型的一部分，对一个元素进行相对定位，这个元素相对于它的起点(即在文档中的位置)进行移动top/left/right/bottom。使用相对定位时，无论是否进行移动，元素仍占据原来空间，移动元素会导致覆盖其他框。
+2.绝对定位|absolute
+    相对于最近的已定位的祖先元素。
+    绝对定位使元素与文档流无关，不占据文档空间。普通流中的元素会表现的好像绝对定位的元素并不存在一样。绝对定位的元素的位置相对于最近的已定位的祖先元素。若元素没有已定位的祖先元素，那么元素的位置相对于最初的包含块，依据浏览器不同，最初包含块可能为canvas或者html元素。
+    何谓 已定位的祖先元素（包含块） ？
+    Take a look at what the CSS 2.1 specification has to say about containing blocks: 
+    If the element has ‘position: absolute’, the containing block is established by the nearest ancestor with a ‘position’ of ‘absolute’, ‘relative’ or ‘fixed’ ... If there is no such ancestor, the containing block is the initial containing block. 
+        祖先元素（包含块）是指具有position:absolute|relative|fixed的祖先元素</p>
+
+<p>3.固顶定位|fixed
+    属于绝对定位的一个子类，包含块是viewport。</p>
+
+<pre><code>理论永远是枯燥的，以下上我学习时写得例子。就像我说的，这是我学习时写的例子，所以，样子可以说是奇丑无比，以至于我都不愿意把它丑陋的样子展示出来，所以，以下只给除html以及css的源代码。
+</code></pre>
+
+<p>default.html</p>
+
+<p>`&lt;!DOCTYPE&nbsp;html&nbsp;PUBLIC&nbsp;&quot;-//W3C//DTD&nbsp;XHTML&nbsp;1.0&nbsp;Strict//EN&quot;&nbsp;&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html&nbsp;lang=&quot;zh-CN&quot;&nbsp;xml:lang=&quot;zh-CN&quot;&nbsp;xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+&lt;meta&nbsp;http-equiv=&quot;Content-Type&quot;&nbsp;content=&quot;text/html;&nbsp;charset=utf-8&quot;&nbsp;/&gt;
+&lt;meta&nbsp;name=&quot;Author&quot;&nbsp;content=&quot;&quot;&nbsp;/&gt;
+&lt;link&nbsp;href=&quot;style.css&quot;&nbsp;rel=&quot;stylesheet&quot;&nbsp;type=&quot;text/css&quot;&nbsp;media=&quot;screen&quot;&nbsp;title=&quot;position&quot;&nbsp;/&gt;
+&lt;title&gt;Position&nbsp;example&lt;/title&gt;
+&lt;/head&gt;</p>
+
+<p>&lt;body&gt;
+&nbsp;&nbsp;&lt;div&nbsp;id=&quot;content&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox0&quot;&gt;myBox0&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox1&quot;&gt;myBox1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox6&quot;&gt;myBox6&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox2&quot;&gt;myBox2
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox5&quot;&gt;myBox5&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox3&quot;&gt;myBox3&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox4&quot;&gt;myBox4&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;myBox7&quot;&gt;myBox7&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+`</p>
+
+<p>style.css</p>
+
+<p>`*{
+&nbsp;&nbsp;margin:&nbsp;0;
+&nbsp;&nbsp;padding:&nbsp;0;
+}
+body{
+&nbsp;&nbsp;text-align:&nbsp;center;
+}</p>
+
+<h1>content{</h1>
+
+<p>&nbsp;&nbsp;width:&nbsp;800px;
+&nbsp;&nbsp;height:&nbsp;100%;
+&nbsp;&nbsp;margin:&nbsp;0&nbsp;auto;
+&nbsp;&nbsp;background:&nbsp;Fuchsia;
+&nbsp;&nbsp;text-align:&nbsp;left;
+}</p>
+
+<h1>myBox0{</h1>
+
+<p>&nbsp;&nbsp;width:&nbsp;200px;
+&nbsp;&nbsp;height:&nbsp;300px;
+&nbsp;&nbsp;background:&nbsp;red;
+}</p>
+
+<h1>myBox1{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;relative;
+&nbsp;&nbsp;left:&nbsp;20px;
+&nbsp;&nbsp;top:&nbsp;20px;
+&nbsp;&nbsp;width:&nbsp;100px;
+&nbsp;&nbsp;height:&nbsp;200px;
+&nbsp;&nbsp;background:&nbsp;Aqua;
+}</p>
+
+<h1>myBox2{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;absolute;
+&nbsp;&nbsp;left:&nbsp;20px;
+&nbsp;&nbsp;top:&nbsp;20px;
+&nbsp;&nbsp;width:&nbsp;200px;
+&nbsp;&nbsp;height:&nbsp;300px;
+&nbsp;&nbsp;background:&nbsp;yellow;
+}</p>
+
+<h1>myBox3{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;static;
+&nbsp;&nbsp;width:&nbsp;300px;
+&nbsp;&nbsp;height:&nbsp;400px;
+&nbsp;&nbsp;background:&nbsp;orange;
+}</p>
+
+<h1>myBox4{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;fixed;
+&nbsp;&nbsp;top:&nbsp;100px;
+&nbsp;&nbsp;right:&nbsp;300px;
+&nbsp;&nbsp;width:&nbsp;100px;
+&nbsp;&nbsp;height:&nbsp;50px;
+&nbsp;&nbsp;background:&nbsp;#fff;
+}</p>
+
+<h1>myBox5{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;absolute;
+&nbsp;&nbsp;left:&nbsp;20px;
+&nbsp;&nbsp;top:&nbsp;80px;
+&nbsp;&nbsp;width:&nbsp;120px;
+&nbsp;&nbsp;height:&nbsp;30px;
+&nbsp;&nbsp;background:&nbsp;blue;
+}</p>
+
+<h1>myBox6{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;absolute;
+&nbsp;&nbsp;left:&nbsp;20px;
+&nbsp;&nbsp;top:&nbsp;80px;
+&nbsp;&nbsp;width:&nbsp;120px;
+&nbsp;&nbsp;height:&nbsp;30px;
+&nbsp;&nbsp;background:&nbsp;green;
+}</p>
+
+<h1>myBox7{</h1>
+
+<p>&nbsp;&nbsp;position:&nbsp;absolute;
+&nbsp;&nbsp;left:&nbsp;120px;
+&nbsp;&nbsp;top:&nbsp;180px;
+&nbsp;&nbsp;width:&nbsp;50px;
+&nbsp;&nbsp;height:&nbsp;50px;
+&nbsp;&nbsp;background:&nbsp;black;
+}
+`</p>
+
+  </div>
+</div>
+
+    
+<div class="entry">
+  <div class="entry-hd">
+    <h2>
+      <a href="/posts/css-written-order">[CSS]Mozilla建议的CSS书写顺序</a>
+    </h2>
+
+    <div class="meta">
+      <span class="time">2007-05-07 18:51:03</span>
+    </div>
+
+  </div>
+
+  <div class="entry-bd">
+    <ul>
 <li>mozilla.org Base Styles</li>
 <li>maintained by fantasai</li>
 <li>(classes defined in the Markup Guide - http://mozilla.org/contribute/writing/markup)
@@ -73,24 +232,24 @@
 */</li>
 </ul>
 
-	</div>
+  </div>
 </div>
 
-		
+    
 <div class="entry">
-	<div class="entry-hd">
-		<h2>
-			<a href="/posts/65">留学生回国学历公证【国外学历认证】流程</a>
-		</h2>
+  <div class="entry-hd">
+    <h2>
+      <a href="/posts/65">留学生回国学历公证【国外学历认证】流程</a>
+    </h2>
 
-		<div class="meta">
-			<span class="time">2007-03-01 14:35:43</span>
-		</div>
+    <div class="meta">
+      <span class="time">2007-03-01 14:35:43</span>
+    </div>
 
-	</div>
+  </div>
 
-	<div class="entry-bd">
-		<p>毕业回国半年多了，毕业证一直在俄罗斯耽搁着没拿回来，想想我还觉得头疼。。。当初本以为毕业就万事大吉了，可一遍遍的对成绩改成绩折腾完，再到发毕业证，发成绩单。。。眼看着签证就到期了，可还有个更加。。。必须要办的公证等在后头呢。。。交完钱，委托完，再一看。。。8月中旬反馈回来！妹妹我的签证才到8月1号呢！傻眼了吧。。。没办法之下只有交托给姐妹打理，小春我义无反顾的就空手回国了！折腾来折腾去的，毕业证前几天才刚刚回自己手上，想起来还要办这么多麻烦的手续，我就烦的不行，可也没有办法啊，不再公证谁承认你啊！
+  <div class="entry-bd">
+    <p>毕业回国半年多了，毕业证一直在俄罗斯耽搁着没拿回来，想想我还觉得头疼。。。当初本以为毕业就万事大吉了，可一遍遍的对成绩改成绩折腾完，再到发毕业证，发成绩单。。。眼看着签证就到期了，可还有个更加。。。必须要办的公证等在后头呢。。。交完钱，委托完，再一看。。。8月中旬反馈回来！妹妹我的签证才到8月1号呢！傻眼了吧。。。没办法之下只有交托给姐妹打理，小春我义无反顾的就空手回国了！折腾来折腾去的，毕业证前几天才刚刚回自己手上，想起来还要办这么多麻烦的手续，我就烦的不行，可也没有办法啊，不再公证谁承认你啊！
 以方便大家为目的，小春简单的说一下各个公证的流程，
 <font color="Red">先说在俄罗斯如何办理各个手续，然后是回国后的公证（在其他国家学习的朋友可根据情况直接看回国后部分）：</font>
 1。在俄罗斯读大学是要有预科系的，要记住，预科的毕业证也是非常重要的，在回国公证时要用到！如果没有，那俄语1级的证书可代替预科毕业证。
@@ -126,24 +285,24 @@
 
 <p>祝大家好运气！</p>
 
-	</div>
+  </div>
 </div>
 
-		
+    
 <div class="entry">
-	<div class="entry-hd">
-		<h2>
-			<a href="/posts/visa">青岛市护照申领流程</a>
-		</h2>
+  <div class="entry-hd">
+    <h2>
+      <a href="/posts/visa">青岛市护照申领流程</a>
+    </h2>
 
-		<div class="meta">
-			<span class="time">2006-12-28 09:26:13</span>
-		</div>
+    <div class="meta">
+      <span class="time">2006-12-28 09:26:13</span>
+    </div>
 
-	</div>
+  </div>
 
-	<div class="entry-bd">
-		<p>工作需要，去申办了护照
+  <div class="entry-bd">
+    <p>工作需要，去申办了护照
 把过程记录一下</p>
 
 <p>需要材料：户口本复印件、身份证复印件
@@ -173,54 +332,54 @@
 
 <p>他们周六上午也会办理，早9点开始，不过只是半天，人比较多，最好早去，不然拿不到号了</p>
 
-	</div>
+  </div>
 </div>
 
 
-	
+  
 
-	
+  
 
 
 <ul class="pagination-wrapper">
 
-		<li>
-			<a href="/page/6">&laquo;</a>
-		</li>
+    <li>
+      <a href="/page/6">&laquo;</a>
+    </li>
 
-		
+    
 <li >
-	<a href="/page/1" data-page="1">1</a>
+  <a href="/page/1" data-page="1">1</a>
 </li>
 
-		
+    
 <li >
-	<a href="/page/2" data-page="2">2</a>
+  <a href="/page/2" data-page="2">2</a>
 </li>
 
-		
+    
 <li >
-	<a href="/page/3" data-page="3">3</a>
+  <a href="/page/3" data-page="3">3</a>
 </li>
 
-		
+    
 <li >
-	<a href="/page/4" data-page="4">4</a>
+  <a href="/page/4" data-page="4">4</a>
 </li>
 
-		
+    
 <li >
-	<a href="/page/5" data-page="5">5</a>
+  <a href="/page/5" data-page="5">5</a>
 </li>
 
-		
+    
 <li >
-	<a href="/page/6" data-page="6">6</a>
+  <a href="/page/6" data-page="6">6</a>
 </li>
 
-		
+    
 <li class="on">
-	<a href="/page/7" data-page="7">7</a>
+  <a href="/page/7" data-page="7">7</a>
 </li>
 
 
@@ -234,10 +393,8 @@
       </div>
     </div>
     <script src="/static/js/base-a95fa134.js"></script>
-    <script src="/static/js/common-b0c0c8c0.js"></script>
+    <script src="/static/js/common-a0490c80.js"></script>
     
-<script src="/static/js/index-a2357e66.js"></script>
-
   </body>
 </html>
 
