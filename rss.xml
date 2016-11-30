@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">GaoWhen高H温</title>
   <id>http://gaowhen.com/rss.xml</id>
-  <updated>2016-03-09T15:52:14.937310Z</updated>
+  <updated>2016-11-30T16:26:00.403293Z</updated>
   <link href="http://gaowhen.com/" />
   <link href="http://gaowhen.com/rss.xml" rel="self" />
   <author>
@@ -10,6 +10,54 @@
   </author>
   <subtitle type="text">「文不能测字 武不能防身」</subtitle>
   <generator>Werkzeug</generator>
+  <entry xml:base="http://gaowhen.com/rss.xml">
+    <title type="text">关于读书</title>
+    <id>http://gaowhen.com/guan-yu-du-shu/</id>
+    <updated>2016-11-30T16:24:56Z</updated>
+    <published>2016-11-30T16:24:56Z</published>
+    <link href="http://gaowhen.com/posts/guan-yu-du-shu/" />
+    <author>
+      <name>Miko Gao aka 糖伴西红柿</name>
+    </author>
+    <content type="html">&lt;p&gt;我一向是个嘴硬的人，一直坚持说没做过什么后悔的事情。但这两年每每拿起 Kindle 就对大学时候没有多看些书感到遗憾。&lt;/p&gt;
+
+&lt;p&gt;我小时候还挺喜欢读书的，我妈到现在还经常提到我小时候在沙发上以各种姿势看书的情形。其中还有印象的是「岳飞传」和「哪吒闹海」。我也还算清晰地记大概三年级时候去隔壁的同学家玩，说起我在看「三国演义」的时候，她爸爸一脸怀疑的表情，完全不相信我能看懂的回答。&lt;/p&gt;
+
+&lt;p&gt;高中时候的班主任是个长得特别像鲁迅的语文老师。他上课的习惯基本就在讲台不下来，只要不太过份，他也不太在意我们到底在干什么，所以他的课我基本就用来看课外书了。但是奇怪的是，即使如此，我们班的语文成绩也一直是年级第一。隔壁班的语文老师曾在他上课的时候偷偷从后门的窗户里观摩，结果发现下面的学生聊天的、打牌的、睡觉的、看闲书的，做什么的都有，一直对此百思不得其解。&lt;/p&gt;
+
+&lt;p&gt;大学时候我还特嫌弃学校那个奇怪的规定，「理工科的学生一次最多借 2 本书，文科生可以借最多 4 本」。然而事实是，学校的图书馆，除了「电子阅览室」(其实就是去免费上网)，真正藏书的部分没进去过几次。对图书馆的印象，最深的是某本发黄的书上，还印着许多年前建校时期的公章，和校内德占时期建筑一样，特别沧桑。然后就是当年一起去电子阅览室上网的同学，现在已经华丽转身，从刷卡上网的学生，成为了我校图书馆的老师们。&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;后来去某司工作的时候，lead 说有两个组可以选，读书和电影。我想了想，觉得自己是电影的用户，就选择去了电影组，也由此认识了那些至今特别怀念的人。但从最近的情况来看，我应该已经不算是电影的用户了…&lt;/p&gt;
+
+&lt;p&gt;如果总结最近几年买的最值的物品，那 Kindle 绝对是其中之一。入手 Kindle 之后看的书绝对超过了之前几年累积在一起的总和。&lt;/p&gt;
+
+&lt;p&gt;与大学时候闲得不知道应该该干些什么相比，现在的时间全部碎片化，感觉想做的事情太多，时间安排却上往往捉襟见肘。只好把一些兴趣尽力压缩，就连读书的选择上也只能把范围缩窄，基本上集中在 行业相关。即使我觉得还是应该尽可能得多读些不同类别的书。像吃饭一样，总是挑食，最后很可能营养不良；只读某个小范围的书，最终也难免视野狭隘。所以我总是自嘲现在选书的标准太过「功利」。&lt;/p&gt;
+
+&lt;p&gt;读书有什么意义？&lt;/p&gt;
+
+&lt;p&gt;以前我觉得演员这个职业特别好，因为可以体验各种各样不同的人的人生。现在觉得读书也是如此。Martin 在「权力的游戏」中写到，“A reader lives a thousand lives before he dies,” said Jojen. “The man who never reads lives only one. &amp;quot; 透过薄薄的一本书，可以在很短的时间内看到一个人几年，十几年甚至几十年的心路历程；能学习到别人走过很多弯路，趟过很多坑之后总结出来的宝贵经验；能让你看到其他人眼中的世界，也能让你更清楚地了解自己。也能让人更容易地沉下心来。&lt;/p&gt;
+
+&lt;p&gt;能…&lt;/p&gt;
+
+&lt;p&gt;算了吧，何必太过计较所谓「意义」。之前在 twitter 上转过一句「鸡汤」：「人的核心竞争力超过一半来自不紧不慢的事——读书、锻炼身体、与智者交流以及业余爱好。」这些事都是长期有益的事情，它们的好处并不能在短期内体现出来，而且长期来看，也很有可能不会确切地感受到什么。然而真正有益的事情都是这么一点一滴地积累下来的。&lt;/p&gt;
+
+&lt;p&gt;最近不做事的时候，不看书反而感觉无聊了，感觉像是一件好事。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;我权且当流水帐写，你凑合做口水文看。&lt;/p&gt;
+
+&lt;p&gt;人生本苦短，不爽就取关。&lt;/p&gt;
+
+&lt;p&gt;产量极少，请勿催扰。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;微信搜索 mindfire，或者扫描以下二维码：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/static/img/qrcode.jpg&quot; alt=&quot;wechat media&quot;&gt;&lt;/p&gt;
+</content>
+  </entry>
   <entry xml:base="http://gaowhen.com/rss.xml">
     <title type="text">Hatching Twitter</title>
     <id>http://gaowhen.com/hatching-twitter/</id>
